@@ -1,0 +1,291 @@
+{
+  "Meta": {
+    "title": "AR Finance",
+    "description": "Сиздин бизнесиңиз үчүн мыкты каржылоо."
+  },
+  "Components": {
+    "FormLogin": {
+      "title": "Кирүү",
+      "description": "Аккаунтка кирүү үчүн төмөндө электрондук почтаңызды жана парольңызды киргизиңиз",
+      "label-email": "Электрондук почта",
+      "label-password": "Сыр сөз",
+      "submit-button": "Кирүү",
+      "toast-error": "Туура эмес электрондук почта же сыр сөз. Кайрадан аракет кылып көрүңүз.",
+      "toast-success": "Сиз ийгиликтүү кирдиңиз. Кайрадан кош келдиңиз!"
+    },
+    "FormUser": {
+      "toast-success": "Сиз ийгиликтүү жаңы колдонуучуну түздүңүз.",
+      "toast-error": "Колдонуучуну түзүүдө ката кетти. Сураныч, кайра аракет кылыңыз."
+    },
+    "ModeToggle": {
+      "sr-label": "Тема сөздөрүн көрүңүз",
+      "light": "Жарык",
+      "dark": "Караңгы",
+      "system": "Система"
+    },
+    "Breadcrumb": {
+      "dashboard": "Админ панель",
+      "users": "Колдонуучулар",
+      "settings": "Жөндөөлөр",
+      "cms": "Мазмун",
+      "blog": "Блог",
+      "hero": "Алдыңкы бөлүм",
+      "about-us": "Биз жөнүндө",
+      "why-us": "Неге биз",
+      "cta": "Аракетке чакыруу",
+      "our-services": "Биздин кызматтар",
+      "plans": "Тарифтер",
+      "calculator": "Калькулятор",
+      "our-team": "Биздин команда",
+      "our-partners": "Биздин өнөктөштөр",
+      "faq": "Көп берилүүчү суроолор",
+      "contacts-socials": "Байланыштар жана социалдык тармактар",
+      "meta": "Метадайындар",
+      "go-index-page": "Башкы бетке өтүңүз",
+      "security": "Коопсуздук",
+      "advanced": "Өркүндөтүлгөн орнотуулар",
+      "new": "Жаңы",
+      "home": "Башкы бет",
+      "requests": "Тиркемелер"
+    },
+    "SidebarAdmin": {
+      "company-name": "AR Finance",
+      "dashboard": "Башкаруу панели",
+      "users": "Колдонуучулар",
+      "settings": "Орнотуулар",
+      "cms": "Контент",
+      "blog": "Блог",
+      "requests": "Тиркемелер"
+    },
+    "Button": {
+      "logout": "Чыгуу",
+      "learn-more": "Көбүрөөк билүү",
+      "close": "Жабуу",
+      "choose-plan": "Тарифти тандаңыз",
+      "service-calculator": "Кызмат калькулятору",
+      "read-more": "Кененирээк окуу"
+    },
+    "FormSection": {
+      "heading-label": "Заголовок",
+      "heading-placeholder": "Аталышынын текстин киргизиңиз",
+      "current-value": "Учурдагы маани",
+      "subheading-label": "Почта аталышы",
+      "subheading-placeholder": "Бөлүмчө текстин киргизиңиз",
+      "primary-button-label": "Негизги баскыч",
+      "primary-button-placeholder": "Негизги баскычтын текстин киргизиңиз",
+      "form-save": "Сактоо",
+      "secondary-button-label": "Экинчи баскыч",
+      "secondary-button-placeholder": "Экинчи баскычтын текстин киргизиңиз",
+      "update-success": "Бөлүм ийгиликтүү жаңыртылды",
+      "update-error": "Бөлүм жаңыртылган жок. \nСураныч, кайра аракет кылыңыз.",
+      "section-name-label": "Бөлүмдүн аты",
+      "section-name-placeholder": "Бөлүмдүн атын киргизиңиз",
+      "card-title": "Карточка {number} - Башы",
+      "card-title-placeholder": "Картанын аталышын киргизиңиз",
+      "card-description-label": "Карточка {number} - Сүрөттөмө",
+      "card-bullets-label": "Тизме",
+      "card-bullets-placeholder": "Тизме элементин киргизиңиз",
+      "card-bullets-add-bullet": "Тизме элементин кошуу",
+      "card-extra-label": "Карточка {number} - Кошумча талаа",
+      "card-description-placeholder": "Карточканын сүрөттөмөсүн киргизиңиз",
+      "card-extra-placeholder": "Кошумча талаасын киргизиңиз",
+      "button-add-new": "Жаңы кошуу",
+      "image-label": "Сүрөт"
+    },
+    "PlanCard": {
+      "card-title": "Тариф"
+    },
+    "FormArticle": {
+      "form-title-create": "Жаңы макала түзүү",
+      "form-description-create": "Сураныч, жаңы макала түзүү үчүн төмөнкү форманы толтуруңуз. \nМакаланын аталышын, мазмунун, негизги сүрөтүн жана статусун камтыган бардык керектүү маалыматты киргизгениңизди текшериңиз. \nМакаланы андан ары оңдоо үчүн долбоор катары сактап же дароо жарыяласаңыз болот.",
+      "button-add-social": "Социалдык кошуу",
+      "button-save-post": "Сактоо",
+      "placeholder-blog-title": "Блогдун аталышын киргизиңиз",
+      "label-blog-title": "Блогдун аталышы  ({locale})",
+      "label-blog-content": "Блог мазмуну  ({locale})",
+      "placeholder-blog-content": "Блогдун мазмунун киргизиңиз",
+      "label-link-title": "Шилтеменин аталышы ({locale})",
+      "placeholder-link-title": "Шилтеменин аталышын киргизиңиз",
+      "label-link-href": "Шилтеме",
+      "placeholder-link-href": "Шилтемени киргизиңиз",
+      "label-select-status": "Статус",
+      "status-draft": "Долбоор",
+      "status-published": "Жарыялоо",
+      "status-archived": "Архив",
+      "label-blog-image": "Блог сүрөтү",
+      "form-title-update": "Жаңы макаланы жаңыртуу",
+      "form-description-update": "Сураныч, жаңы макаланы жаңыртуу үчүн төмөнкү форманы толтуруңуз. \nМакаланын аталышын, мазмунун, негизги сүрөтүн жана статусун камтыган бардык керектүү маалыматты киргизгениңизди текшериңиз. \nМакаланы андан ары оңдоо үчүн долбоор катары сактап же дароо жарыяласаңыз болот.",
+      "button-cancel": "Жокко чыгаруу",
+      "column-title": "Title",
+      "column-date": "Дата",
+      "column-status": "Статус",
+      "column-actions": "Аракеттер"
+    },
+    "FormOptions": {
+      "placeholder-type": "Опция",
+      "button-save": "Сактоо"
+    },
+    "FormServiceCost": {
+      "button-save": "Сактоо",
+      "button-add-new": "Кошуу",
+      "form-of-ownership": "Менчик формасы",
+      "field-of-activity": "Иш чөйрөсү",
+      "tax-system": "Салык системасы",
+      "employee-range": "Кызматкерлердин диапазону",
+      "time-period": "Убакыт мезгили",
+      "total-amount": "Жалпы сумма",
+      "total-amount-after-discount": "Арзандатуудан кийинки сумма",
+      "actions": "Аракеттер",
+      "table-caption": "Кызмат көрсөтүүлөргө чыгымдардын тизмеси.",
+      "select-placeholder": "Опцияны тандаңыз",
+      "calculator-helper-text": "Сиздин бизнесиңизге ылайыктуу варианттарды тандаңыз, биз баасын эсептейбиз",
+      "button-get-offer": "Сунуш алыңыз",
+      "placeholder-form-of-ownership": "Менчик формасын тандаңыз",
+      "placeholder-field-of-activity": "Иш чөйрөсүн тандаңыз",
+      "placeholder-time-period": "Убакыт аралыгын тандаңыз",
+      "placeholder-employee-range": "Кызматкерлер диапазонун тандоо",
+      "placeholder-tax-system": "Салык системасын тандоо",
+      "cost-of-accounting-services": "Бухгалтердик кызмат көрсөтүүлөрдүн баасы:",
+      "currency": "сом",
+      "price-without-discount": "сом арзандатуусуз айына"
+    },
+    "NavigationLinks": {
+      "services": "Кызматтар",
+      "plans": "Тарифтер",
+      "blog": "Блог",
+      "team": "Команда",
+      "contacts": "Байланыштар"
+    },
+    "Footer": {
+      "our-contacts": "Биздин байланыштар",
+      "our-socials": "Биздин соц"
+    },
+    "FormRequest": {
+      "get-an-offer": "Сунуш алыңыз",
+      "name-label": "Сиздин атыңыз",
+      "phone-label": "Сиздин телефон номериңиз",
+      "name-placeholder": "Азамат Азаматович",
+      "title": "аты",
+      "phone": "Телефон",
+      "status": "Статус",
+      "contents-of-the-application": "Колдонмонун мазмуну",
+      "date": "Дата",
+      "read": "ОКУЛГАН",
+      "unread": "ОКУЛБАГАН",
+      "alert-title": "Сиз толук ишенесизби?",
+      "alert-description": "Бул аракетти артка кайтаруу мүмкүн эмес. \nБул өтүнүчтү биротоло жок кылат жана аны серверлерибизден алып салат.",
+      "button-continue": "Улантуу",
+      "button-cancel": "Жокко чыгаруу",
+      "phone-number": "Телефон номери",
+      "customer-name": "Кардардын аты",
+      "form-title-update": "Тиркемени жаңыртуу",
+      "form-description-update": "Тиркемени жаңыртуу үчүн төмөнкү форманы толтуруңуз. Сурамды окулган же окула элек катары сактай аласыз.",
+      "button-save": "Сактоо",
+      "mark-as-read": "Окулган деп белгилөө",
+      "mark-as-unread": "Окула элек деп белгилөө"
+    },
+    "FormMeta": {
+      "label-meta-title": "Мета аталышы",
+      "placeholder-meta-title": "Мета аталышы...",
+      "label-meta-description": "Мета сүрөттөмө",
+      "placeholder-meta-description": "Мета сүрөттөмө...",
+      "label-meta-keywords": "Мета ачкыч сөздөр",
+      "placeholder-meta-keywords": "Мета ачкыч сөздөр...",
+      "label-og-image": "OG Сүрөт",
+      "button-save": "Сактоо",
+      "label-logo-1": "Логотип 1",
+      "label-logo-2": "Логотип 2"
+    }
+  },
+  "Pages": {
+    "Page404": {
+      "title": "404",
+      "description": "Кечиресиз, сиз издеген баракча жок.",
+      "link": "Башкы бетке кайтуу"
+    },
+    "Admin": {
+      "Dashboard": {
+        "heading": "Админ панели"
+      },
+      "Users": {
+        "title": "Колдонуучуну башкаруу",
+        "search-placeholder": "Колдонуучуну издөө...",
+        "button-add-new": "Жаңы колдонуучу"
+      },
+      "CMS": {
+        "Navigation": {
+          "hero": "Алдыңкы секция",
+          "about-us": "Биз жөнүндө",
+          "why-us": "Эмне үчүн биз",
+          "cta": "Иш-аракетке чакыруу",
+          "our-services": "Биздин кызматтар",
+          "plans": "Пландар",
+          "calculator": "Калькулятор",
+          "blog": "Блог",
+          "our-team": "Биздин команда",
+          "our-partners": "Биздин өнөктөштөр",
+          "faq": "Көп берилүүчү суроолор",
+          "contacts-socials": "Байланыштар жана социалдык тармактар",
+          "meta": "Метадайындар",
+          "certificates": "Сертификаттар"
+        },
+        "title": "Контент башкаруу системасы",
+        "Section": {
+          "card-heading": "Секциянын контенти",
+          "card-subheading": "Жаңы текст киргизип, сактоо үчүн баскычты басыңыз."
+        },
+        "heading": "Мазмунду башкаруу тутумуна кош келиңиз",
+        "subheading": "Түзөтүүнү баштоо үчүн бөлүмдү тандаңыз.",
+        "ContactsAndSocials": {
+          "subheading": "Сайттын байланышын жана социалдык байланыштарды түзөтүңүз",
+          "heading": "Коомдук медиа"
+        },
+        "Meta": {
+          "heading": "Метадайындар",
+          "subheading": "Сайттын метадайындарын түзөтүңүз"
+        }
+      },
+      "Blog": {
+        "title": "Блог башкаруу",
+        "button-add-new": "Жаңы макала",
+        "search-placeholder": "Макала издөө..."
+      },
+      "Settings": {
+        "title": "Система орнотуулары",
+        "Navigation": {
+          "general": "Жалпы орнотуулар",
+          "security": "Коопсуздук орнотуулары",
+          "advanced": "Өркүндөтүлгөн орнотуулар",
+          "calculator": "Калькулятор орнотуулары"
+        },
+        "general-settings-title": "Жалпы орнотуулар",
+        "general-settings-description": "Колдонмоңуздун жалпы жөндөөлөрүн башкарыңыз. \nБул бөлүмдө сайттын маалыматын жана көрүнүшүн конфигурациялоо параметрлери камтылган."
+      },
+      "Calculator": {
+        "title": "Калькулятор кызматынын баасы",
+        "description": "Колдонмоңуздун калькулятор жөндөөлөрүн башкарыңыз. \nБул бөлүм калькулятордун параметрлерин конфигурациялоо боюнча кызматтардын баасын камтыйт.",
+        "options-management-title": "Калькулятор параметрлерин башкаруу",
+        "options-management-description": "Колдонмоңуздун калькулятор жөндөөлөрүн башкарыңыз. \nБул бөлүм калькулятордун параметрлерин конфигурациялоо үчүн опцияларды камтыйт."
+      },
+      "Request": {
+        "title": "Кардардын суроо-талаптары",
+        "button-add-new": "Сурам кошуу",
+        "search-placeholder": "Колдонмо издөө..."
+      }
+    },
+    "Blog": {
+      "other-articles": "Башка макалалар"
+    }
+  },
+  "Server": {
+    "actions": {
+      "success-create": "Ийгиликтүү түзүлдү!!",
+      "success-update": "Ийгиликтүү жаңыртылды!!",
+      "success-delete": "Ийгиликтүү өчүрүлдү!!",
+      "error": "Ой! Ката кетти.",
+      "request-submit-success": "Сиздин арыз ийгиликтүү жеткирилди!",
+      "request-submit-error": "Өтүнмөңүздү тапшырууда ката кетти. \nСураныч, кайра аракет кылыңыз.",
+      "item-not-found": "Элемент табылган жок"
+    }
+  }
+}

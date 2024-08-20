@@ -1,0 +1,16 @@
+enum RequestStatus {
+  READ
+  UNREAD
+}
+
+model ClientRequest {
+  uid            Int          @id @default(autoincrement())
+  firsName              String
+  lastName              String
+  email      String
+  message    String
+  status            RequestStatus @default(UNREAD)
+  createdAt         DateTime @default(now())
+
+  @@map("client_requests")
+}

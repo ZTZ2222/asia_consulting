@@ -1,0 +1,291 @@
+{
+  "Meta": {
+    "title": "AR Finance",
+    "description": "Лучшее финансирование для вашего бизнеса."
+  },
+  "Components": {
+    "FormLogin": {
+      "title": "Вход",
+      "description": "Введите ваш email и пароль ниже, чтобы войти в ваш аккаунт",
+      "label-email": "Электронная почта",
+      "label-password": "Пароль",
+      "submit-button": "Войти",
+      "toast-error": "Неправильный email или пароль. Пожалуйста, попробуйте снова.",
+      "toast-success": "Вы успешно вошли в систему. Добро пожаловать обратно!"
+    },
+    "FormUser": {
+      "toast-success": "Вы успешно создали нового пользователя.",
+      "toast-error": "Произошла ошибка при создании пользователя. Пожалуйста, попробуйте ещё раз."
+    },
+    "ModeToggle": {
+      "sr-label": "Переключить тему",
+      "light": "Светлая",
+      "dark": "Темная",
+      "system": "Система"
+    },
+    "Breadcrumb": {
+      "dashboard": "Панель управления",
+      "users": "Пользователи",
+      "settings": "Настройки",
+      "cms": "Контент",
+      "blog": "Блог",
+      "hero": "Лицевая секция",
+      "about-us": "О нас",
+      "why-us": "Почему мы",
+      "cta": "Призыв к действию",
+      "our-services": "Наши услуги",
+      "plans": "Тарифы",
+      "calculator": "Калькулятор",
+      "our-team": "Наша команда",
+      "our-partners": "Наша партнеры",
+      "faq": "Часто задаваемые вопросы",
+      "contacts-socials": "Контакты и социальные сети",
+      "meta": "Метаданные",
+      "go-index-page": "Вернуться на домашнюю страницу",
+      "security": "Безопасность",
+      "advanced": "Расширенные настройки",
+      "new": "Новый",
+      "home": "Главная",
+      "requests": "Заявки"
+    },
+    "SidebarAdmin": {
+      "company-name": "AR Finance",
+      "dashboard": "Панель управления",
+      "users": "Пользователи",
+      "settings": "Настройки",
+      "cms": "Контент",
+      "blog": "Блог",
+      "requests": "Заявки"
+    },
+    "Button": {
+      "logout": "Выход",
+      "learn-more": "Подробнее",
+      "close": "Закрыть",
+      "choose-plan": "Выбрать тариф",
+      "service-calculator": "Калькулятор услуг",
+      "read-more": "Читать далее"
+    },
+    "FormSection": {
+      "heading-label": "Заголовок",
+      "heading-placeholder": "Введите текст заголовка",
+      "current-value": "Текущее значение",
+      "subheading-label": "Подзаголовок",
+      "subheading-placeholder": "Введите текст подзаголовка",
+      "primary-button-label": "Основная кнопка",
+      "primary-button-placeholder": "Введите текст основной кнопки",
+      "form-save": "Сохранить",
+      "secondary-button-label": "Дополнительная кнопка",
+      "secondary-button-placeholder": "Введите текст дополнительной кнопки",
+      "update-success": "Раздел успешно обновлен",
+      "update-error": "Обновление раздела не удалось. \nПожалуйста, попробуйте еще раз.",
+      "section-name-label": "Название раздела",
+      "section-name-placeholder": "Введите название раздела",
+      "card-title": "Карточка {number} — Заголовок",
+      "card-title-placeholder": "Введите заголовок карты",
+      "card-description-label": "Карточка {number} — Описание",
+      "card-bullets-label": "Список",
+      "card-bullets-placeholder": "Введите пункт списка",
+      "card-bullets-add-bullet": "Добавить пункт списка",
+      "card-extra-label": "Карточка {number} – Доп. поле",
+      "card-description-placeholder": "Введите описание карточки",
+      "card-extra-placeholder": "Введите дополнительное поле",
+      "button-add-new": "Добавить",
+      "image-label": "Изображение"
+    },
+    "PlanCard": {
+      "card-title": "Тариф"
+    },
+    "FormArticle": {
+      "form-title-create": "Создать новую статью",
+      "form-description-create": "Пожалуйста, заполните форму ниже, чтобы создать новую статью. \nОбязательно введите всю необходимую информацию, включая заголовок, содержание, основное изображение и статус статьи. \nВы можете сохранить статью как черновик для дальнейшего редактирования или сразу опубликовать.",
+      "button-add-social": "Добавить соц. сеть",
+      "button-save-post": "Сохранить",
+      "placeholder-blog-title": "Введите название блога",
+      "label-blog-title": "Название блога  ({locale})",
+      "label-blog-content": "Содержание блога  ({locale})",
+      "placeholder-blog-content": "Введите содержание блога",
+      "label-link-title": "Название ссылки ({locale})",
+      "placeholder-link-title": "Введите название ссылки",
+      "label-link-href": "Ссылка",
+      "placeholder-link-href": "Введите ссылку",
+      "label-select-status": "Статус",
+      "status-draft": "Черновик",
+      "status-published": "Опубликовано",
+      "status-archived": "Архив",
+      "label-blog-image": "Изображение блога",
+      "form-title-update": "Обновить новую статью",
+      "form-description-update": "Пожалуйста, заполните форму ниже, чтобы обновить новую статью. \nОбязательно введите всю необходимую информацию, включая заголовок, содержание, основное изображение и статус статьи. \nВы можете сохранить статью как черновик для дальнейшего редактирования или сразу опубликовать.",
+      "button-cancel": "Отмена",
+      "column-title": "Заголовок",
+      "column-date": "Дата",
+      "column-status": "Статус",
+      "column-actions": "Действия"
+    },
+    "FormOptions": {
+      "placeholder-type": "Вариант",
+      "button-save": "Сохранить"
+    },
+    "FormServiceCost": {
+      "button-save": "Сохранить",
+      "button-add-new": "Добавить",
+      "form-of-ownership": "Форма собственности",
+      "field-of-activity": "Сфера деятельности",
+      "tax-system": "Налоговая система",
+      "employee-range": "Диапазон сотрудников",
+      "time-period": "Период времени",
+      "total-amount": "Общая сумма",
+      "total-amount-after-discount": "Сумма после скидки",
+      "actions": "Действия",
+      "table-caption": "Список стоимостей за услуги.",
+      "select-placeholder": "Выберите вариант",
+      "calculator-helper-text": "Выберите варианты, подходящие вашему бизнесу, и мы рассчитаем стоимость",
+      "button-get-offer": "Получить предложение",
+      "placeholder-form-of-ownership": "Выберите форму собственности",
+      "placeholder-field-of-activity": "Выберите сферу деятельности",
+      "placeholder-time-period": "Выберите период времени",
+      "placeholder-employee-range": "Выберите диапазон сотрудников",
+      "placeholder-tax-system": "Выберите систему налогообложения",
+      "cost-of-accounting-services": "Стоимость бухгалтерского обслуживания за",
+      "currency": "сом",
+      "price-without-discount": "сом в месяц без скидки"
+    },
+    "NavigationLinks": {
+      "services": "Услуги",
+      "plans": "Тарифы",
+      "blog": "Блог",
+      "team": "Команда",
+      "contacts": "Контакты"
+    },
+    "Footer": {
+      "our-contacts": "Наши контакты",
+      "our-socials": "Мы в соцсетях"
+    },
+    "FormRequest": {
+      "get-an-offer": "Получить предложение",
+      "name-label": "Ваше имя",
+      "phone-label": "Ваш номер телефона",
+      "name-placeholder": "Азамат Азаматович",
+      "title": "Имя",
+      "phone": "Телефон",
+      "status": "Статус",
+      "contents-of-the-application": "Содержание заявки",
+      "date": "Дата",
+      "read": "ПРОЧИТАНО",
+      "unread": "НЕПРОЧИТАННО",
+      "alert-title": "Вы абсолютно уверены?",
+      "alert-description": "Это действие невозможно отменить. \nЭто приведет к окончательному удалению запроса и его удалению с наших серверов.",
+      "button-continue": "Продолжить",
+      "button-cancel": "Отмена",
+      "phone-number": "Номер телефона",
+      "customer-name": "Имя клиента",
+      "form-title-update": "Обновить заявку",
+      "form-description-update": "Пожалуйста, заполните форму ниже, чтобы обновить заявку. Вы можете сохранить запрос как прочитанный или непрочитанный.",
+      "button-save": "Сохранить",
+      "mark-as-read": "Отметить как прочитанное",
+      "mark-as-unread": "Отметить как непрочитанное"
+    },
+    "FormMeta": {
+      "label-meta-title": "Мета-заголовок",
+      "placeholder-meta-title": "Мета-заголовок...",
+      "label-meta-description": "Мета-описание",
+      "placeholder-meta-description": "Мета-описание...",
+      "label-meta-keywords": "Мета-ключевые слова",
+      "placeholder-meta-keywords": "Мета-ключевые слова...",
+      "label-og-image": "OG Изображение",
+      "button-save": "Сохранить",
+      "label-logo-1": "Логотип 1",
+      "label-logo-2": "Логотип 2"
+    }
+  },
+  "Pages": {
+    "Page404": {
+      "title": "404",
+      "description": "Извините, страница, которую вы искали, не существует.",
+      "link": "Вернуться на главную"
+    },
+    "Admin": {
+      "Dashboard": {
+        "heading": "Панель администратора"
+      },
+      "Users": {
+        "title": "Управление пользователями",
+        "search-placeholder": "Поиск пользователя...",
+        "button-add-new": "Новый пользователь"
+      },
+      "CMS": {
+        "Navigation": {
+          "hero": "Лицевая секция",
+          "about-us": "О нас",
+          "why-us": "Почему мы",
+          "cta": "Призыв к действию",
+          "our-services": "Наши услуги",
+          "plans": "Тарифы",
+          "calculator": "Калькулятор",
+          "blog": "Блог",
+          "our-team": "Наша команда",
+          "our-partners": "Наша партнеры",
+          "faq": "Часто задаваемые вопросы",
+          "contacts-socials": "Контакты и социальные сети",
+          "meta": "Метаданные",
+          "certificates": "Сертификаты"
+        },
+        "title": "Система управления контентом",
+        "Section": {
+          "card-heading": "Контент секции",
+          "card-subheading": "Введите новый текст и нажмите сохранить, для того чтобы перезаписать."
+        },
+        "heading": "Добро пожаловать в систему управления контентом",
+        "subheading": "Пожалуйста, выберите раздел, чтобы начать редактирование.",
+        "ContactsAndSocials": {
+          "subheading": "Отредактируйте контакты сайта и ссылки на социальные сети.",
+          "heading": "Социальные сети"
+        },
+        "Meta": {
+          "heading": "Метаданные",
+          "subheading": "Редактировать метаданные сайта"
+        }
+      },
+      "Blog": {
+        "title": "Управление блогом",
+        "button-add-new": "Новая статья",
+        "search-placeholder": "Искать статью..."
+      },
+      "Settings": {
+        "title": "Настройки системы",
+        "Navigation": {
+          "general": "Общие настройки",
+          "security": "Настройки безопасности",
+          "advanced": "Расширенные настройки",
+          "calculator": "Настройки калькулятора"
+        },
+        "general-settings-title": "Общие настройки",
+        "general-settings-description": "Управляйте общими настройками вашего приложения. \nВ этом разделе представлены параметры настройки информации и внешнего вида сайта."
+      },
+      "Calculator": {
+        "title": "Калькулятор стоимости услуги",
+        "description": "Управляйте настройками калькулятора вашего приложения. \nВ данном разделе представлена ​​стоимость услуг по настройке параметров калькулятора.",
+        "options-management-title": "Управление опциями калькулятора",
+        "options-management-description": "Управляйте настройками калькулятора вашего приложения. \nВ этом разделе представлены параметры настройки параметров калькулятора."
+      },
+      "Request": {
+        "title": "Клиентские заявки",
+        "button-add-new": "Добавить заявку",
+        "search-placeholder": "Поиск заявки..."
+      }
+    },
+    "Blog": {
+      "other-articles": "Другие статьи"
+    }
+  },
+  "Server": {
+    "actions": {
+      "success-create": "Успешно создан!",
+      "success-update": "Успешно обновлено!",
+      "success-delete": "Успешно удалено!",
+      "error": "Упс! Произошла ошибка.",
+      "request-submit-success": "Ваша заявка успешно доставлена!",
+      "request-submit-error": "При отправке вашей заявки произошла ошибка. \nПожалуйста, попробуйте еще раз.",
+      "item-not-found": "Элемент не найден"
+    }
+  }
+}
