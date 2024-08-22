@@ -41,7 +41,11 @@ export default async function CMSLayout({
       href: "/admin/cms/cta",
     },
     {
-      title: t("Pages.Admin.CMS.Navigation.contacts-socials"),
+      title: t("Pages.Admin.CMS.Navigation.contact"),
+      href: "/admin/cms/contact",
+    },
+    {
+      title: t("Pages.Admin.CMS.Navigation.socials"),
       href: "/admin/cms/contacts-socials",
     },
     {

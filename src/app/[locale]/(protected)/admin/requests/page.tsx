@@ -1,8 +1,5 @@
 import React, { Suspense } from "react"
-import Link from "next/link"
-import { PlusCircle } from "lucide-react"
 import { getTranslations } from "next-intl/server"
-import { Button } from "@/components/ui/button"
 import Search from "@/components/ui/search"
 import PaginationComponent from "@/components/layout/pagination-component"
 import { db } from "@/server"
@@ -25,13 +22,19 @@ export default async function RequestList({ searchParams }: Props) {
     where: {
       OR: [
         {
-          name: {
+          firstName: {
             contains: query,
             mode: "insensitive",
           },
         },
         {
-          contactPhone: {
+          lastName: {
+            contains: query,
+            mode: "insensitive",
+          },
+        },
+        {
+          email: {
             contains: query,
             mode: "insensitive",
           },
@@ -42,7 +45,7 @@ export default async function RequestList({ searchParams }: Props) {
   const totalPages = Math.ceil(totalCount / 10)
 
   return (
-    <div className="flex h-full flex-col gap-4 py-5">
+    <div className="flex min-h-[calc(100vh-170px)] flex-col gap-4 py-5">
       <div className="flex justify-between">
         <h1 className="text-2xl font-semibold">
           {t("Pages.Admin.Request.title")}

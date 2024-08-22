@@ -23,7 +23,8 @@ export default async function RequestTable({ query, currentPage }: Props) {
   const t = await getTranslations()
   const columns = [
     t("Components.FormRequest.title"),
-    t("Components.FormRequest.phone"),
+    t("Components.FormRequest.last-name"),
+    t("Components.FormRequest.column-email"),
     t("Components.FormRequest.contents-of-the-application"),
     t("Components.FormRequest.date"),
     t("Components.FormRequest.status"),
@@ -46,37 +47,12 @@ export default async function RequestTable({ query, currentPage }: Props) {
           <TableRow key={request.uid}>
             <TableCell>
               <Link href={`/admin/requests/${request.uid}`}>
-                {request.name}
+                {request.firstName}
               </Link>
             </TableCell>
-            <TableCell>{request.contactPhone}</TableCell>
-            <TableCell className="flex max-w-[350px] flex-wrap gap-2">
-              {request.Plan && (
-                <Badge variant="outline">{request.Plan.title_ru}</Badge>
-              )}
-              {request.additionalInfo && (
-                <Badge variant="outline">{request.additionalInfo}</Badge>
-              )}
-              {request.FormOfOwnership && (
-                <Badge variant="outline">
-                  {request.FormOfOwnership.name_ru}
-                </Badge>
-              )}
-              {request.FieldOfActivity && (
-                <Badge variant="outline">
-                  {request.FieldOfActivity.name_ru}
-                </Badge>
-              )}
-              {request.TaxSystem && (
-                <Badge variant="outline">{request.TaxSystem.name_ru}</Badge>
-              )}
-              {request.EmployeeRange && (
-                <Badge variant="outline">{request.EmployeeRange.range}</Badge>
-              )}
-              {request.TimePeriod && (
-                <Badge variant="outline">{request.TimePeriod.period_ru}</Badge>
-              )}
-            </TableCell>
+            <TableCell>{request.lastName}</TableCell>
+            <TableCell>{request.email}</TableCell>
+            <TableCell>{request.message}</TableCell>
             <TableCell>
               {request.createdAt.toLocaleDateString(locale)}
             </TableCell>
