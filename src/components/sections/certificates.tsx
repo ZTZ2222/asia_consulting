@@ -6,6 +6,9 @@ export default async function Certificates() {
   const sectionData = await getNormalizedSectionById("certificates")
 
   return (
-    <CarouselWithBullets cards={sectionData?.cards} className="mb-24 mt-12" />
+    <CarouselWithBullets
+      cards={sectionData?.cards}
+      className="mb-24 mt-12 lg:mt-28"
+    />
   )
 }

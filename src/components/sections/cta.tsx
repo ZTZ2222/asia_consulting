@@ -11,9 +11,11 @@ export default async function CTA() {
   const card = sectionData?.cards[0]
   return (
     <div className="container mb-24 space-y-8">
-      <div className="grid space-y-3">
-        <Heading>{sectionData?.heading}</Heading>
-        <Subheading>{sectionData?.subheading}</Subheading>
+      <div className="flex flex-col gap-3 lg:flex-row lg:justify-between">
+        <div className="space-y-3">
+          <Heading>{sectionData?.heading}</Heading>
+          <Subheading>{sectionData?.subheading}</Subheading>
+        </div>
         <div className="relative h-[103px] w-[208px] justify-self-center">
           <Image
             src={sectionData?.image || ""}
@@ -23,11 +25,7 @@ export default async function CTA() {
           />
         </div>
       </div>
-      <FormRequest
-        btnText={sectionData?.primaryButton}
-        card={card}
-        className="lg:max-w-[320px]"
-      />
+      <FormRequest btnText={sectionData?.primaryButton} card={card} />
     </div>
   )
 }

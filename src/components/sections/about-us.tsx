@@ -12,7 +12,7 @@ export default async function AboutUs() {
   return (
     <section
       id="about-us"
-      className="container mb-[100px] space-y-[120px] overflow-hidden"
+      className="container mb-[100px] space-y-[120px] overflow-x-clip lg:grid lg:grid-cols-2 lg:gap-5 lg:space-y-0"
     >
       <div className="bg-gray-25 flex flex-col justify-center gap-[12px] rounded-[24px] p-6 shadow-xl">
         <Heading>{sectionData?.heading}</Heading>

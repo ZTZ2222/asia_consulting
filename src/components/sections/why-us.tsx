@@ -11,7 +11,7 @@ export default async function WhyUs() {
   const sectionData = await getNormalizedSectionById("why-us")
 
   return (
-    <section className="container grid justify-items-center gap-8 py-12">
+    <section className="container grid justify-items-center gap-8 py-12 lg:grid-cols-2 lg:gap-16">
       <div className="grid gap-6">
         <div className="space-y-2">
           <Heading>{sectionData?.heading}</Heading>
@@ -20,9 +20,9 @@ export default async function WhyUs() {
           </h4>
         </div>
         <Separator />
-        <div className="space-y-6">
+        <div className="space-y-6 md:grid md:justify-items-center">
           <Subheading>{sectionData?.subheading}</Subheading>
-          <Button variant="core" size="lg" className="h-11 w-full">
+          <Button variant="core" size="lg" className="h-11 w-full max-w-xl">
             {sectionData?.primaryButton}
           </Button>
         </div>
