@@ -44,18 +44,18 @@ export default function CarouselWithBullets({ cards, className }: Props) {
     <div className={cn("container", className)}>
       <Carousel
         setApi={setApi}
-        className="relative min-w-[300px] overflow-hidden rounded-[10px] md:w-[380px] lg:w-[400px]"
+        className="relative min-w-[300px] overflow-hidden rounded-[10px] md:w-full"
       >
         <CarouselContent className="cursor-grab">
           {cards?.map((card, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="md:basis-1/2">
               <Card className="space-y-1 border-none bg-transparent">
                 <CardContent className="relative h-[281px] p-0 md:h-[317px] lg:h-[352px]">
                   <Image
                     src={card.image || ""}
                     alt={card.title || `Carousel Image ${index + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-cover md:object-contain"
                     sizes="100vw"
                     priority
                   />

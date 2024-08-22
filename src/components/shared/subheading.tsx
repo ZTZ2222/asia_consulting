@@ -8,7 +8,12 @@ type Props = {
 
 export default function Subheading({ className, children }: Props) {
   return (
-    <p className={cn("text-pretty leading-6 text-gray-650", className)}>
+    <p
+      className={cn(
+        "text-pretty leading-6 text-gray-650 lg:text-lg lg:leading-[30px] xl:text-xl",
+        className,
+      )}
+    >
       {children}
     </p>
   )

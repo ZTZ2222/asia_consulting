@@ -23,7 +23,7 @@ export default function AnimatedImage({
   return (
     <div
       className={cn(
-        "relative h-[420px] w-[358px] overflow-hidden rounded-3xl",
+        "relative h-[420px] w-[358px] overflow-hidden rounded-3xl lg:h-auto lg:w-full",
         className,
       )}
     >
@@ -42,7 +42,7 @@ export default function AnimatedImage({
         viewport={{
           once: true,
         }}
-        className="absolute bottom-0 space-y-4 bg-white/30 px-6 py-4 text-white backdrop-blur-md"
+        className="absolute bottom-0 space-y-4 bg-white/30 px-6 py-4 text-white backdrop-blur-md lg:w-full"
       >
         <h3 className="text-[32px] font-semibold leading-10 tracking-tight">
           {title}

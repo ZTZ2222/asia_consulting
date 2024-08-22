@@ -45,7 +45,7 @@ export default function Parallax({ image, cards }: ParallaxProps) {
               y: ySpring,
             }}
           >
-            <p className="text-lg font-semibold leading-6 text-[#101828]">
+            <p className="text-lg font-semibold leading-6 text-[#101828] lg:text-xl">
               {card.title}
             </p>
             {card.description && (

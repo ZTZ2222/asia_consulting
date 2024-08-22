@@ -11,14 +11,14 @@ type Props = {
 }
 
 export default function AccordionStep({ cards, className }: Props) {
-  const [openItem, setOpenItem] = useState<string | null>(null)
+  const [openItem, setOpenItem] = useState<string | null>("item-1")
 
   const toggleItem = (item: string) => {
     setOpenItem(openItem === item ? null : item)
   }
 
   return (
-    <div className={cn("space-y-2", className)}>
+    <div className={cn("space-y-6", className)}>
       {cards?.map((card, index) => {
         const isOpen = openItem === `item-${index + 1}`
         return (
@@ -32,7 +32,12 @@ export default function AccordionStep({ cards, className }: Props) {
             )}
             onClick={() => toggleItem(`item-${index + 1}`)}
           >
-            <div className={cn("w-[278px]", !isOpen && "line-clamp-3")}>
+            <div
+              className={cn(
+                "w-[278px] md:w-[calc(100%-64px)]",
+                !isOpen && "line-clamp-3",
+              )}
+            >
               <p
                 className={cn(
                   "mb-3 text-2xl font-semibold leading-7 tracking-tight",
@@ -50,7 +55,7 @@ export default function AccordionStep({ cards, className }: Props) {
               </ul>
             </div>
             <ArrowDownRight
-              className={`absolute bottom-6 right-6 size-8 transition-all duration-200 ease-in-out ${
+              className={`absolute bottom-6 right-6 size-8 transition-all duration-200 ease-in-out lg:size-12 ${
                 isOpen ? "text-red-550 -rotate-90 transform" : ""
               }`}
             />
