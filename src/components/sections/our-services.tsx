@@ -10,16 +10,17 @@ export default async function OurServices() {
   return (
     <section
       id="our-services"
-      className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]"
+      className="container space-y-8 bg-blue-950 py-12"
     >
-      <div className="space-y-[26px]">
-        <SectionName>{sectionData?.sectionName}</SectionName>
-        <Heading>{sectionData?.heading}</Heading>
-        <Subheading>{sectionData?.subheading}</Subheading>
+      <div className="space-y-2 text-center">
+        <Heading className="text-white">{sectionData?.heading}</Heading>
+        <Subheading className="text-white">
+          {sectionData?.subheading}
+        </Subheading>
       </div>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {sectionData?.cards.map((card, index) => (
-          <ServiceCard key={card.uid} card={card} index={index} />
+          <ServiceCard key={card.uid} card={card} />
         ))}
       </div>
     </section>

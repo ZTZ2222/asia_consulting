@@ -13,7 +13,7 @@ export default async function Blog() {
 
   const posts = (await getNormalizedArticles()).slice(0, 3)
   return (
-    <section id="blog" className="mb-[100px] space-y-[50px] md:mb-[120px]">
+    <section className="mb-24 space-y-8">
       <div className="container lg:flex lg:justify-between">
         <div className="space-y-[26px] lg:w-[75%]">
           <SectionName>{sectionData?.sectionName}</SectionName>
@@ -44,11 +44,6 @@ export default async function Blog() {
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <div className="container lg:hidden">
-        <Button variant="core" size="mobile" asChild>
-          <Link href="/blog">{sectionData?.primaryButton}</Link>
-        </Button>
-      </div>
     </section>
   )
 }

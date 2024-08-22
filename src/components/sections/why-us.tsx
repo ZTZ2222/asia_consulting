@@ -1,28 +1,38 @@
 import React from "react"
-import SectionName from "@/components/shared/section-name"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import AnimatedImage from "@/components/shared/animated-image"
+import Heading from "@/components/shared/heading"
+import Subheading from "@/components/shared/subheading"
 import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function WhyUs() {
   const sectionData = await getNormalizedSectionById("why-us")
 
   return (
-    <section className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]">
-      <SectionName>{sectionData?.sectionName}</SectionName>
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {sectionData?.cards?.map(card => (
-          <div
-            key={card.uid}
-            className="space-y-7 rounded-[30px] border border-gray-350 bg-white p-[30px] text-center shadow-card xl:space-y-4 xl:px-[22px]"
-          >
-            <h4 className="text-lg font-bold leading-5 text-black xl:leading-[22px]">
-              {card.title}
-            </h4>
-            <p className="leading-6 text-gray-650 xl:leading-5">
-              {card.description}
-            </p>
-          </div>
-        ))}
+    <section className="container grid justify-items-center gap-8 py-12">
+      <div className="grid gap-6">
+        <div className="space-y-2">
+          <Heading>{sectionData?.heading}</Heading>
+          <h4 className="text-red-550 font-semibold leading-6">
+            {sectionData?.cards[0].title}
+          </h4>
+        </div>
+        <Separator />
+        <div className="space-y-6">
+          <Subheading>{sectionData?.subheading}</Subheading>
+          <Button variant="core" size="lg" className="h-11 w-full">
+            {sectionData?.primaryButton}
+          </Button>
+        </div>
       </div>
+      <AnimatedImage
+        image={sectionData?.image}
+        title={sectionData?.cards[0].title}
+        description={sectionData?.cards[0].description}
+        extra={sectionData?.cards[0].extra}
+      />
     </section>
   )
 }

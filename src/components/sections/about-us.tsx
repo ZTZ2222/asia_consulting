@@ -1,5 +1,8 @@
 import React from "react"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import Heading from "@/components/shared/heading"
+import Parallax from "@/components/shared/parallax"
 import Subheading from "@/components/shared/subheading"
 import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
@@ -8,14 +11,18 @@ export default async function AboutUs() {
 
   return (
     <section
-      id="about"
-      className="container relative mb-[100px] overflow-hidden md:mb-[120px] xl:flex xl:overflow-visible"
+      id="about-us"
+      className="container mb-[100px] space-y-[120px] overflow-hidden"
     >
-      <div className="space-y-[26px] xl:mt-[140px]">
-        {/* <Heading>{sectionData?.heading}</Heading> */}
-        <Heading>Азия Консалтинг Company</Heading>
-        {/* <Subheading>{sectionData?.subheading}</Subheading> */}
+      <div className="bg-gray-25 flex flex-col justify-center gap-[12px] rounded-[24px] p-6 shadow-xl">
+        <Heading>{sectionData?.heading}</Heading>
+        <Separator />
+        <Subheading>{sectionData?.subheading}</Subheading>
+        <Button variant="core" size="lg" className="mt-[12px] self-center">
+          {sectionData?.primaryButton}
+        </Button>
       </div>
+      <Parallax image={sectionData?.image} cards={sectionData?.cards} />
     </section>
   )
 }
