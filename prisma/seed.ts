@@ -176,24 +176,12 @@ async function seedSections() {
       cards: [
         {
           sectionId: 4,
-          title_ru: "Сертификат за что-то",
-          title_ky: "Сертификат за что-то",
-          description_ru: null,
-          description_ky: null,
-          extra_ru: null,
-          extra_ky: null,
-          bullets_ru: [],
-          bullets_ky: [],
-          image: null,
-        },
-        {
-          sectionId: 4,
-          title_ru: "Сертификат еще за что-то",
-          title_ky: "Сертификат еще за что-то",
-          description_ru: null,
-          description_ky: null,
-          extra_ru: null,
-          extra_ky: null,
+          title_ru: "Рахманов Талант Нурланович",
+          title_ky: "Рахманов Талант Нурланович",
+          description_ru: "Генеральный директор",
+          description_ky: "Генеральный директор",
+          extra_ru: "Азия Консалтинг Компани",
+          extra_ky: "Азия Консалтинг Компани",
           bullets_ru: [],
           bullets_ky: [],
           image: null,
@@ -376,6 +364,59 @@ async function seedSections() {
         },
       ],
     },
+    {
+      uid: 9,
+      slug: "certificates",
+      sectionName_ru: null,
+      sectionName_ky: null,
+      heading_ru: null,
+      heading_ky: null,
+      subheading_ru: null,
+      subheading_ky: null,
+      primaryButton_ru: null,
+      primaryButton_ky: null,
+      secondaryButton_ru: null,
+      secondaryButton_ky: null,
+      image: null,
+      cards: [
+        {
+          sectionId: 9,
+          title_ru: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          title_ky: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          description_ru: null,
+          description_ky: null,
+          extra_ru: null,
+          extra_ky: null,
+          bullets_ru: [],
+          bullets_ky: [],
+          image: null,
+        },
+        {
+          sectionId: 9,
+          title_ru: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          title_ky: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          description_ru: null,
+          description_ky: null,
+          extra_ru: null,
+          extra_ky: null,
+          bullets_ru: [],
+          bullets_ky: [],
+          image: null,
+        },
+        {
+          sectionId: 9,
+          title_ru: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          title_ky: "Сертификат Франко-Кыргызской бизнес ассоциации 2022 г.",
+          description_ru: null,
+          description_ky: null,
+          extra_ru: null,
+          extra_ky: null,
+          bullets_ru: [],
+          bullets_ky: [],
+          image: null,
+        },
+      ],
+    },
   ]
 
   await prisma.section.deleteMany({})
@@ -454,13 +495,12 @@ async function seedSocials() {
     },
   ]
 
-  prisma.contact.deleteMany({})
   prisma.social.deleteMany({})
 
   // Socials
   await prisma.social.createMany({ data: socials })
 
-  console.log("Socials and contacts have been seeded.")
+  console.log("Socials have been seeded.")
 }
 
 async function main() {

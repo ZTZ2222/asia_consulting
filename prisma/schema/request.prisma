@@ -5,10 +5,11 @@ enum RequestStatus {
 
 model ClientRequest {
   uid            Int          @id @default(autoincrement())
-  firsName              String
+  firstName              String
   lastName              String
   email      String
   message    String
+  accepted_privacy_policy Boolean
   status            RequestStatus @default(UNREAD)
   createdAt         DateTime @default(now())
 
