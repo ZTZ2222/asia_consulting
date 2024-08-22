@@ -1,5 +1,7 @@
 import AboutUs from "@/components/sections/about-us"
 import Blog from "@/components/sections/blog"
+import Certificates from "@/components/sections/certificates"
+import Contact from "@/components/sections/contact"
 import CTA from "@/components/sections/cta"
 import FAQ from "@/components/sections/faq"
 import Hero from "@/components/sections/hero"
@@ -11,12 +13,13 @@ export default function Home() {
     <main>
       <Hero />
       <AboutUs />
-      {/* <OurServices /> */}
-      {/* <WhyUs /> */}
-      {/* <Certificates /> */}
-      {/* <FAQ /> */}
-      {/* <Blog /> */}
-      {/* <CTA /> */}
+      <OurServices />
+      <WhyUs />
+      <Certificates />
+      <FAQ />
+      <Blog />
+      <CTA />
+      <Contact />
     </main>
   )
 }
