@@ -17,17 +17,17 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        core: "bg-rose-750 text-white hover:bg-rose-750/80 text-base font-semibold leading-5",
+        core: "bg-gradient-to-r from-red-650 to-gray-950 text-white hover:opacity-75 transition-all text-lg font-semibold leading-7 shadow-[0px_1px_2px_0px_#1018280D] from-[16%] to-[123%]",
         support:
           "bg-white/80 font-semibold border border-rose-750/60 text-black",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        lg: "h-12 rounded-[12px] px-20 w-fit",
         icon: "h-10 w-10",
         mobile: "w-full py-[18px] rounded-lg",
-        menu: "p-4",
+        menu: "p-2",
       },
     },
     defaultVariants: {

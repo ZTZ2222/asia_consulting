@@ -52,7 +52,7 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {
-  logo?: string
+  logo: string | null | undefined
 }
 
 const SheetContent = React.forwardRef<
@@ -67,18 +67,18 @@ const SheetContent = React.forwardRef<
       className={cn(sheetVariants({ side }), className)}
       {...props}
     >
-      <div className="mb-10 flex justify-between">
-        <div className="relative size-14">
+      <div className="flex justify-between bg-white px-4 py-3">
+        <div className="relative h-[46px] w-[92px]">
           <Image
-            src={logo || "/assets/logo/ar_finance_rounded_224px.png"}
+            src={logo || "/assets/image_logo.png"}
             alt="Logo"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
-        <SheetPrimitive.Close className="rounded-lg border border-rose-750/20 p-[15px] focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
-          <X className="h-6 w-6 text-rose-750" />
+        <SheetPrimitive.Close className="p-2 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+          <X className="h-6 w-6" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
       </div>
@@ -106,13 +106,7 @@ const SheetFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className,
-    )}
-    {...props}
-  />
+  <div className={cn("", className)} {...props} />
 )
 SheetFooter.displayName = "SheetFooter"
 

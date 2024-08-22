@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { Trash2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { ControllerRenderProps } from "react-hook-form"
 import { toast } from "sonner"
 import { UploadButton, cn } from "@/lib/utils"
@@ -16,11 +17,11 @@ type Props = {
 }
 
 export default function ImageUploadthing({ field, className }: Props) {
+  const t = useTranslations("Components.Uploadthing")
   const [isDeleting, setIsDeleting] = useState(false)
   const handleImageDelete = async (image: string) => {
     setIsDeleting(true)
     const imageKey = image.substring(image.lastIndexOf("/") + 1)
-    console.log("imageKey", imageKey)
 
     const res = await fetch(`/api/uploadthing`, {
       method: "DELETE",
@@ -79,7 +80,7 @@ export default function ImageUploadthing({ field, className }: Props) {
           onClientUploadComplete={res => {
             field.onChange(res[0].url)
             // setImage(res[0].url)
-            toast.success(JSON.stringify(res[0].url))
+            toast.success(t("toast-upload-success"))
           }}
           onUploadError={(error: Error) => {
             toast.error(`ERROR! ${error.message}`)
