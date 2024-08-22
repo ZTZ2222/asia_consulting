@@ -1,7 +1,7 @@
 {
   "Meta": {
-    "title": "AR Finance",
-    "description": "Сиздин бизнесиңиз үчүн мыкты каржылоо."
+    "title": "Asia Consulting",
+    "description": "Биз консалтинг дүйнөсүндөгү сиздин ишенимдүү өнөктөшүбүз."
   },
   "Components": {
     "FormLogin": {
@@ -49,7 +49,7 @@
       "requests": "Тиркемелер"
     },
     "SidebarAdmin": {
-      "company-name": "AR Finance",
+      "company-name": "Asia Consulting",
       "dashboard": "Башкаруу панели",
       "users": "Колдонуучулар",
       "settings": "Орнотуулар",
@@ -154,7 +154,7 @@
       "plans": "Тарифтер",
       "blog": "Блог",
       "team": "Команда",
-      "contacts": "Байланыштар"
+      "contacts": "Биздин байланыштар"
     },
     "Footer": {
       "our-contacts": "Биздин байланыштар",
@@ -162,9 +162,9 @@
     },
     "FormRequest": {
       "get-an-offer": "Сунуш алыңыз",
-      "name-label": "Сиздин атыңыз",
-      "phone-label": "Сиздин телефон номериңиз",
-      "name-placeholder": "Азамат Азаматович",
+      "name-label": "Атыныз",
+      "phone-label": "Фамилия",
+      "name-placeholder": "Азамат",
       "title": "аты",
       "phone": "Телефон",
       "status": "Статус",
@@ -182,7 +182,12 @@
       "form-description-update": "Тиркемени жаңыртуу үчүн төмөнкү форманы толтуруңуз. Сурамды окулган же окула элек катары сактай аласыз.",
       "button-save": "Сактоо",
       "mark-as-read": "Окулган деп белгилөө",
-      "mark-as-unread": "Окула элек деп белгилөө"
+      "mark-as-unread": "Окула элек деп белгилөө",
+      "button-send-request": "Сурам жөнөтүү",
+      "label-email": "E-mail",
+      "label-privacy-policy": "Мен купуялык шарттарына макулмун",
+      "last-name": "Фамилия",
+      "column-email": "E-mail"
     },
     "FormMeta": {
       "label-meta-title": "Мета аталышы",
@@ -195,6 +200,9 @@
       "button-save": "Сактоо",
       "label-logo-1": "Логотип 1",
       "label-logo-2": "Логотип 2"
+    },
+    "Uploadthing": {
+      "toast-upload-success": "Сүрөт ийгиликтүү жүктөлдү!"
     }
   },
   "Pages": {
@@ -227,7 +235,9 @@
           "faq": "Көп берилүүчү суроолор",
           "contacts-socials": "Байланыштар жана социалдык тармактар",
           "meta": "Метадайындар",
-          "certificates": "Сертификаттар"
+          "certificates": "Сертификаттар",
+          "socials": "Коомдук медиа",
+          "contact": "Байланыштар"
         },
         "title": "Контент башкаруу системасы",
         "Section": {

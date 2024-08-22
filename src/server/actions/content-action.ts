@@ -5,7 +5,6 @@ import { getTranslations } from "next-intl/server"
 import { z } from "zod"
 import { db } from "@/server"
 import {
-  contactSchema,
   metaUpsertSchema,
   sectionSchema,
   socialSchema,
@@ -51,46 +50,6 @@ export const deleteCard = actionClient
     try {
       await db.card.delete({ where: { uid: parsedInput.uid } })
       revalidatePath("/admin/cms/[section]")
-
-      return { success: t("Server.actions.success-delete") }
-    } catch (error) {
-      return { error: t("Server.actions.error") }
-    }
-  })
-
-export const upsertContacts = actionClient
-  .schema(contactSchema.array())
-  .action(async ({ parsedInput: contacts }) => {
-    const t = await getTranslations()
-    try {
-      for (const contact of contacts) {
-        if (contact.uid) {
-          await db.contact.update({
-            where: { uid: contact.uid },
-            data: contact,
-          })
-        } else {
-          await db.contact.create({
-            data: contact,
-          })
-        }
-      }
-
-      revalidatePath("/", "layout")
-
-      return { success: t("Server.actions.success-update") }
-    } catch (error) {
-      return { error: t("Server.actions.error") }
-    }
-  })
-
-export const deleteContact = actionClient
-  .schema(z.object({ uid: z.number() }))
-  .action(async ({ parsedInput }) => {
-    const t = await getTranslations()
-    try {
-      await db.contact.delete({ where: { uid: parsedInput.uid } })
-      revalidatePath("/", "layout")
 
       return { success: t("Server.actions.success-delete") }
     } catch (error) {
