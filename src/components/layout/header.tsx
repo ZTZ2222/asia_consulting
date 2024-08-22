@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -9,18 +7,21 @@ export default function Header({ logo }: { logo: string | null | undefined }) {
   return (
     <header
       className={cn(
-        "container flex items-center justify-between border-b py-3 lg:mb-10 lg:mt-5",
+        "border-b py-3",
+        "z-50 w-screen lg:fixed lg:top-0 lg:bg-white/70 lg:backdrop-blur-md",
       )}
     >
-      <Link href="/" className="relative h-[46px] w-[92px]">
-        <Image
-          src={logo || "/assets/image_logo.png"}
-          alt="Asia Consulting Logo"
-          fill
-          className="object-cover"
-        />
-      </Link>
-      <Navigation logo={logo} />
+      <div className="container flex items-center justify-between lg:gap-10">
+        <Link href="/" className="relative h-[46px] w-[92px]">
+          <Image
+            src={logo || "/assets/image_logo.png"}
+            alt="Asia Consulting Logo"
+            fill
+            className="object-cover"
+          />
+        </Link>
+        <Navigation logo={logo} />
+      </div>
     </header>
   )
 }

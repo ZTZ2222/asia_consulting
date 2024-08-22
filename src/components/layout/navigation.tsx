@@ -58,7 +58,7 @@ export default function Navigation({
           </Button>
         </SheetTrigger>
         <SheetContent
-          className="w-full bg-white/70 p-0 backdrop-blur-sm xl:hidden"
+          className="w-full bg-white/70 p-0 backdrop-blur-md xl:hidden"
           logo={logo}
         >
           {/* SR ONLY */}
@@ -85,16 +85,18 @@ export default function Navigation({
       </Sheet>
 
       {/* Desktop */}
-      <nav className="hidden shrink-0 items-center overflow-hidden rounded-lg bg-white/80 lg:flex">
-        {links.map(link => (
-          <ScrollLink
-            key={link.name}
-            href={link.href}
-            className="px-[20px] py-[14px] transition-colors hover:bg-black/80 hover:text-white lg:py-[22px] xl:px-[30px]"
-          >
-            {link.name}
-          </ScrollLink>
-        ))}
+      <nav className="hidden shrink-0 items-center lg:flex lg:flex-1 lg:justify-between">
+        <div className="flex">
+          {links.map(link => (
+            <ScrollLink
+              key={link.name}
+              href={link.href}
+              className="px-[20px] py-[14px] transition-colors hover:bg-black/80 hover:text-white lg:p-4"
+            >
+              {link.name}
+            </ScrollLink>
+          ))}
+        </div>
         <LocaleSwitcher />
       </nav>
     </>

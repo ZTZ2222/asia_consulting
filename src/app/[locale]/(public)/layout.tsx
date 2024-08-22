@@ -14,7 +14,7 @@ export default async function PublicLayout({
   return (
     <div className="flex flex-col">
       <Header logo={logo} />
-      <main className="grow">{children}</main>
+      <main className="grow lg:mt-24">{children}</main>
       <BackToTopButton />
       <FloatChat />
       <Footer />
