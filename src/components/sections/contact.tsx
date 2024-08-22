@@ -7,7 +7,7 @@ import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 export default async function Contact() {
   const sectionData = await getNormalizedSectionById("contact")
   return (
-    <div className="container mb-40 space-y-6">
+    <section id="contact" className="container mb-40 space-y-6">
       <div className="grid space-y-2">
         <Heading>{sectionData?.heading}</Heading>
         <Subheading>{sectionData?.subheading}</Subheading>
@@ -43,6 +43,6 @@ export default async function Contact() {
           className="object-cover"
         />
       </div>
-    </div>
+    </section>
   )
 }

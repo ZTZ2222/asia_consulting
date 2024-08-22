@@ -41,7 +41,7 @@ export default function Navigation({
     },
     {
       name: t("contacts"),
-      href: "contacts",
+      href: "contact",
     },
   ]
   return (

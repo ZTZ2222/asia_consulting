@@ -6,7 +6,10 @@ export default async function Hero() {
   const sectionData = await getNormalizedSectionById("hero")
 
   return (
-    <section className="relative mb-10 flex h-[calc(100vh-70px)] w-full justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative mb-10 flex h-[calc(100vh-70px)] w-full justify-center overflow-hidden"
+    >
       <h1 className="mt-[180px] max-w-[289px] text-center text-4xl font-semibold leading-[44px] tracking-tight">
         <span className="text-blue-950">{sectionData?.heading} </span>
         <span className="text-[#757C8A]">{sectionData?.subheading} </span>
