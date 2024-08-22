@@ -65,78 +65,84 @@ export default function FormRequest({ btnText, card, className }: Props) {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
-          "space-y-5 rounded-[32px] bg-gray-200 px-4 py-10 text-blue-950 shadow-lg",
+          "space-y-5 rounded-[32px] bg-gray-200 px-4 py-10 text-blue-950 shadow-lg md:px-10 lg:px-20 xl:px-36",
           className,
         )}
       >
-        {/* First Name */}
-        <FormField
-          control={form.control}
-          name="firstName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("name-label")}</FormLabel>
-              <FormControl>
-                <Input placeholder={t("name-placeholder")} {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+        <div className="grid gap-5 lg:grid-cols-2 lg:gap-8">
+          <div className="space-y-5 lg:space-y-8">
+            <div className="grid gap-5 lg:grid-cols-2">
+              {/* First Name */}
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t("name-label")}</FormLabel>
+                    <FormControl>
+                      <Input placeholder={t("name-placeholder")} {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
 
-        {/* Last Name */}
-        <FormField
-          control={form.control}
-          name="lastName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("phone-label")}</FormLabel>
-              <FormControl>
-                <Input placeholder="Азаматов" {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+              {/* Last Name */}
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t("phone-label")}</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Азаматов" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
 
-        {/* Email */}
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("label-email")}</FormLabel>
-              <FormControl>
-                <Input placeholder="azamatov@gmail.com" {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+            {/* Email */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("label-email")}</FormLabel>
+                  <FormControl>
+                    <Input placeholder="azamatov@gmail.com" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
 
-        {/* Message */}
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-sm">
-                <p className="mb-2">{card?.title}</p>
-                <p>{card?.description}</p>
-                <p>{card?.extra}</p>
-              </FormLabel>
-              <ul className="list-inside list-decimal text-sm text-[#475467]">
-                {card?.bullets.map((bullet, index) => (
-                  <li key={index}>{bullet}</li>
-                ))}
-              </ul>
-              <FormControl>
-                <Textarea
-                  placeholder="Ваше сообщение..."
-                  className="resize-none"
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+          {/* Message */}
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm">
+                  <p className="mb-2">{card?.title}</p>
+                  <p>{card?.description}</p>
+                  <p>{card?.extra}</p>
+                </FormLabel>
+                <ul className="list-inside list-decimal text-sm text-[#475467]">
+                  {card?.bullets.map((bullet, index) => (
+                    <li key={index}>{bullet}</li>
+                  ))}
+                </ul>
+                <FormControl>
+                  <Textarea
+                    placeholder="Ваше сообщение..."
+                    className="resize-none"
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
 
         {/* Privacy Policy */}
         <FormField
@@ -162,7 +168,7 @@ export default function FormRequest({ btnText, card, className }: Props) {
           type="submit"
           variant="core"
           size="lg"
-          className="h-11 w-full max-w-sm"
+          className="h-11 w-full"
           disabled={isExecuting}
         >
           {btnText || t("button-send-request")}
