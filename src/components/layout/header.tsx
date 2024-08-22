@@ -2,23 +2,20 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "@/lib/i18n-navigation"
 import { cn } from "@/lib/utils"
 import Navigation from "@/components/layout/navigation"
 
-export default function Header({ logo }: { logo?: string }) {
-  const pathname = usePathname()
+export default function Header({ logo }: { logo: string | null | undefined }) {
   return (
     <header
       className={cn(
-        "container my-[30px] flex items-center justify-between lg:mb-10 lg:mt-5",
-        pathname === "/" && "hidden",
+        "container flex items-center justify-between border-b py-3 lg:mb-10 lg:mt-5",
       )}
     >
-      <Link href="/" className="relative size-14 lg:size-[120px]">
+      <Link href="/" className="relative h-[46px] w-[92px]">
         <Image
-          src={logo || ""}
-          alt="AR Finance Logo"
+          src={logo || "/assets/image_logo.png"}
+          alt="Asia Consulting Logo"
           fill
           className="object-cover"
         />

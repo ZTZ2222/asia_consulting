@@ -1,5 +1,6 @@
 "use client"
 
+import { Menu } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
@@ -12,28 +13,31 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { BurgerMenu } from "@/components/icons"
 import LocaleSwitcher from "@/components/shared/locale-switcher"
 import ScrollLink from "@/components/shared/scroll-link"
 
-export default function Navigation({ logo }: { logo?: string }) {
+export default function Navigation({
+  logo,
+}: {
+  logo: string | null | undefined
+}) {
   const t = useTranslations("Components.NavigationLinks")
   const links = [
     {
-      name: t("services"),
+      name: "Главная",
+      href: "hero",
+    },
+    {
+      name: "О нас",
+      href: "about-us",
+    },
+    {
+      name: "Инвестиции",
+      href: "investment",
+    },
+    {
+      name: "Что мы предлагаем",
       href: "our-services",
-    },
-    {
-      name: t("plans"),
-      href: "plans",
-    },
-    {
-      name: t("blog"),
-      href: "blog",
-    },
-    {
-      name: t("team"),
-      href: "our-team",
     },
     {
       name: t("contacts"),
@@ -46,31 +50,37 @@ export default function Navigation({ logo }: { logo?: string }) {
       <Sheet>
         <SheetTrigger asChild className="lg:hidden">
           <Button
-            variant="support"
+            variant="ghost"
             size="menu"
             // className="border-none"
           >
-            <BurgerMenu />
+            <Menu />
           </Button>
         </SheetTrigger>
-        <SheetContent className="w-full px-4 py-[30px] xl:hidden" logo={logo}>
+        <SheetContent
+          className="w-full bg-white/70 p-0 backdrop-blur-sm xl:hidden"
+          logo={logo}
+        >
+          {/* SR ONLY */}
           <SheetHeader className="sr-only">
             <SheetTitle>Меню навигации</SheetTitle>
             <SheetDescription>Открыть меню навигации</SheetDescription>
           </SheetHeader>
-          {/* Links */}
-          <nav className="mb-[50px] flex flex-col items-center">
-            {links.map(link => (
-              <ScrollLink key={link.name} href={link.href}>
-                <SheetClose className="px-[30px] py-[18px]">
-                  {link.name}
-                </SheetClose>
-              </ScrollLink>
-            ))}
-          </nav>
-          <SheetFooter className="w-full items-center gap-5">
-            <LocaleSwitcher />
-          </SheetFooter>
+          <div className="mt-[65px] flex h-[75%] flex-col justify-between">
+            {/* Links */}
+            <nav className="flex flex-col items-center">
+              {links.map(link => (
+                <ScrollLink key={link.name} href={link.href}>
+                  <SheetClose className="px-[30px] py-4">
+                    {link.name}
+                  </SheetClose>
+                </ScrollLink>
+              ))}
+            </nav>
+            <SheetFooter className="flex w-full justify-center">
+              <LocaleSwitcher className="h-[36px] w-[175px]" />
+            </SheetFooter>
+          </div>
         </SheetContent>
       </Sheet>
 
@@ -85,8 +95,8 @@ export default function Navigation({ logo }: { logo?: string }) {
             {link.name}
           </ScrollLink>
         ))}
+        <LocaleSwitcher />
       </nav>
-      <LocaleSwitcher className="ml-2.5 hidden lg:inline-flex xl:ml-5" />
     </>
   )
 }

@@ -7,15 +7,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Form,
   FormControl,
@@ -24,36 +16,30 @@ import {
   FormLabel,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { createClientRequest } from "@/server/actions/request-action"
-import type { zServiceCost } from "@/types/calculator.schema"
+import type { NormalizedCard } from "@/types/content.schema"
 import {
   clientRequestCreateSchema,
   type zClientRequestСreate,
 } from "@/types/request.schema"
 
-type AdditionalInfo =
-  | zServiceCost
-  | { planId: number }
-  | { additionalInfo: string }
-
 type Props = {
   btnText: string | undefined | null
-  additionalInfo: AdditionalInfo
+  card: NormalizedCard | undefined
   className?: string
 }
 
-export default function FormRequest({
-  btnText,
-  additionalInfo,
-  className,
-}: Props) {
+export default function FormRequest({ btnText, card, className }: Props) {
   const t = useTranslations("Components.FormRequest")
   const form = useForm<zClientRequestСreate>({
     resolver: zodResolver(clientRequestCreateSchema),
     defaultValues: {
-      name: "",
-      contactPhone: "",
-      ...additionalInfo,
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+      accepted_privacy_policy: false,
     },
   })
 
@@ -75,62 +61,113 @@ export default function FormRequest({
   }
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn(
+          "space-y-5 rounded-[32px] bg-gray-200 px-4 py-10 text-blue-950 shadow-lg",
+          className,
+        )}
+      >
+        {/* First Name */}
+        <FormField
+          control={form.control}
+          name="firstName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("name-label")}</FormLabel>
+              <FormControl>
+                <Input placeholder={t("name-placeholder")} {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        {/* Last Name */}
+        <FormField
+          control={form.control}
+          name="lastName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("phone-label")}</FormLabel>
+              <FormControl>
+                <Input placeholder="Азаматов" {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        {/* Email */}
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("label-email")}</FormLabel>
+              <FormControl>
+                <Input placeholder="azamatov@gmail.com" {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        {/* Message */}
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-sm">
+                <p className="mb-2">{card?.title}</p>
+                <p>{card?.description}</p>
+                <p>{card?.extra}</p>
+              </FormLabel>
+              <ul className="list-inside list-decimal text-sm text-[#475467]">
+                {card?.bullets.map((bullet, index) => (
+                  <li key={index}>{bullet}</li>
+                ))}
+              </ul>
+              <FormControl>
+                <Textarea
+                  placeholder="Ваше сообщение..."
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        {/* Privacy Policy */}
+        <FormField
+          control={form.control}
+          name="accepted_privacy_policy"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-center gap-3 rounded-md border p-1">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>{t("label-privacy-policy")}</FormLabel>
+              </div>
+            </FormItem>
+          )}
+        />
+
+        {/* Submit */}
         <Button
-          type="button"
+          type="submit"
           variant="core"
-          size="mobile"
-          className={cn("", className)}
+          size="lg"
+          className="h-11 w-full max-w-sm"
           disabled={isExecuting}
         >
-          {btnText || "Button"}
+          {btnText || t("button-send-request")}
         </Button>
-      </DialogTrigger>
-      <DialogContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            {/* Name */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t("name-label")}</FormLabel>
-                  <FormControl>
-                    <Input placeholder={t("name-placeholder")} {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            {/* Phone */}
-            <FormField
-              control={form.control}
-              name="contactPhone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t("phone-label")}</FormLabel>
-                  <FormControl>
-                    <Input placeholder="+996 555 555 555" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <DialogClose asChild>
-              <Button type="submit" variant="core" size="mobile" className="">
-                {t("get-an-offer")}
-              </Button>
-            </DialogClose>
-          </form>
-        </Form>
-        <DialogHeader>
-          <DialogTitle className="sr-only">Request Form</DialogTitle>
-          <DialogDescription className="sr-only">
-            Request Form
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+      </form>
+    </Form>
   )
 }
