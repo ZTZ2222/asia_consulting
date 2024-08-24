@@ -4,8 +4,8 @@
 COMPOSE_FILE="compose.yaml"
 
 # Pull the latest image
-echo "Pulling the latest image..."
-docker-compose -f $COMPOSE_FILE pull asia_consulting
+# echo "Pulling the latest image..."
+# docker-compose -f $COMPOSE_FILE pull asia_consulting
 
 # Stop the existing container
 echo "Stopping the existing container..."
