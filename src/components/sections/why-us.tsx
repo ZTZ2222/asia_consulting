@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import AnimatedImage from "@/components/shared/animated-image"
@@ -15,15 +16,20 @@ export default async function WhyUs() {
       <div className="grid gap-6">
         <div className="space-y-2">
           <Heading>{sectionData?.heading}</Heading>
-          <h4 className="text-red-550 font-semibold leading-6">
+          <h4 className="font-semibold leading-6 text-red-550">
             {sectionData?.cards[0].title}
           </h4>
         </div>
         <Separator />
         <div className="space-y-6 md:grid md:justify-items-center">
           <Subheading>{sectionData?.subheading}</Subheading>
-          <Button variant="core" size="lg" className="h-11 w-full max-w-xl">
-            {sectionData?.primaryButton}
+          <Button
+            variant="core"
+            size="lg"
+            className="h-11 w-full max-w-xl"
+            asChild
+          >
+            <Link href="#cta">{sectionData?.primaryButton}</Link>
           </Button>
         </div>
       </div>

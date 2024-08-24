@@ -10,7 +10,7 @@ export default async function CTA() {
   const sectionData = await getNormalizedSectionById("cta")
   const card = sectionData?.cards[0]
   return (
-    <div className="container mb-24 space-y-8">
+    <div id="cta" className="container mb-24 space-y-8">
       <div className="flex flex-col gap-3 lg:flex-row lg:justify-between">
         <div className="space-y-3">
           <Heading>{sectionData?.heading}</Heading>
