@@ -4,6 +4,8 @@ import {
 } from "@uploadthing/react"
 import bcrypt from "bcryptjs"
 import { type ClassValue, clsx } from "clsx"
+import { formatDistance } from "date-fns"
+import { ru } from "date-fns/locale"
 import path from "path"
 import { twMerge } from "tailwind-merge"
 import type { OurFileRouter } from "@/app/api/uploadthing/core"
@@ -71,3 +73,11 @@ export const generateFilename = (originalName: string): string => {
 
 export const UploadButton = generateUploadButton<OurFileRouter>()
 export const UploadDropzone = generateUploadDropzone<OurFileRouter>()
+
+export const formatTimeDistanceCustom = (date: Date) =>
+  formatDistance(date, new Date(), { locale: ru })
+
+export const formatStringToDate = (dateString: string) => {
+  const date = new Date(dateString)
+  return date.toLocaleDateString("ru-RU")
+}
