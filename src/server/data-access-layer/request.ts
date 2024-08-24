@@ -12,7 +12,7 @@ export async function getClientRequests(
         ...(query && {
           OR: [
             {
-              firsName: {
+              firstName: {
                 contains: query,
                 mode: "insensitive",
               },
