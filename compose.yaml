@@ -2,36 +2,11 @@ version: '3.8'
 
 services:
   asia_consulting:
-    image: tilzam/asia_consulting::latest
-    container_name: ar_finance_container
+    image: tilzam/asia_consulting:latest
+    container_name: asia_consulting_container
     ports:
       - "3000:3000"  # Map port 3000 on the host to port 3000 in the container
     env_file: 
       - .env
-    volumes:
-      - ./uploads:/public/assets/uploads
-    depends_on:
-      - db
-    entrypoint: [ "sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node server.js" ]
+    entrypoint: [ "/app/entrypoint.sh" ]
     restart: always  # Always restart the container if it stops
-
-  db:
-    image: postgres:latest
-    container_name: postgres_container
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=ar_finance
-    ports:
-      - "5433:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: always  # Always restart the container if it stops
-
-volumes:
-  postgres_data:
-    driver: local
-
-networks:
-  default:
-    driver: bridge
