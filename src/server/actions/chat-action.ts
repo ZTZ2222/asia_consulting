@@ -9,12 +9,6 @@ import { actionClient } from "@/server/actions/safe-action"
 import { pusherServer } from "@/server/pusher"
 import { chatDeleteSchema, messageCreateSchema } from "@/types/chat.schema"
 
-export const setChatIdInCookies = async () => {
-  const chatId = uuidv4()
-  cookies().set("chatId", chatId)
-  return chatId
-}
-
 export const sendMessage = actionClient
   .schema(messageCreateSchema)
   .action(async ({ parsedInput }) => {
