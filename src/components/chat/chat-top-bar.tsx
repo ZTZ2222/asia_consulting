@@ -57,10 +57,6 @@ const ChatTopBar: React.FC<Props> = ({ chat, className }) => {
           </div>
         </div>
 
-        <Button variant="ghost" size="icon" className="p-0 md:hidden">
-          <Phone className="h-6 w-6 text-fuchsia-500" />
-        </Button>
-
         <ChatDotsDropdownMenu className="md:ml-auto" />
       </div>
     </>
