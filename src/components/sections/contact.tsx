@@ -1,4 +1,5 @@
 import React from "react"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import Heading from "@/components/shared/heading"
 import Subheading from "@/components/shared/subheading"
@@ -6,6 +7,10 @@ import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function Contact() {
   const sectionData = await getNormalizedSectionById("contact")
+  const Map = dynamic(() => import("@/components/shared/map-component"), {
+    loading: () => <p>Идет загрузка карты...</p>,
+    ssr: false,
+  })
   return (
     <section id="contact" className="container mb-40 space-y-6">
       <div className="grid space-y-2">
@@ -36,15 +41,10 @@ export default async function Contact() {
             </div>
           ))}
         </div>
-        {/* TODO: Add Map */}
-        <div className="relative h-[380px] w-full">
-          <Image
-            src={"/assets/map.png"}
-            alt={"map"}
-            fill
-            className="object-cover"
-          />
-        </div>
+        <Map
+          latitude={Number(sectionData?.primaryButton)}
+          longitude={Number(sectionData?.secondaryButton)}
+        />
       </div>
     </section>
   )
