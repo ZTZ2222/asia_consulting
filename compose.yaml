@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   asia_consulting:
-    build: 
-      context: .
+    image: tilzam/asia_consulting:latest
     container_name: asia_consulting_container
     ports:
       - "3006:3000"  # Map port 3000 on the host to port 3000 in the container
