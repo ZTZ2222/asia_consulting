@@ -5,7 +5,6 @@ Dockerfile
 .dockerignore
 
 # Ignore development and build files
-.env
 .env.local
 .env.development
 .env.test
