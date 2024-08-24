@@ -19,6 +19,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Form,
   FormControl,
@@ -35,6 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Textarea } from "@/components/ui/textarea"
 import { updateClientRequest } from "@/server/actions/request-action"
 import {
   clientRequestUpdateSchema,
@@ -81,97 +83,123 @@ export default function UpdateRequestForm({ request, className }: Props) {
               {t("form-description-update")}
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-10">
-            <Tabs defaultValue={locale}>
-              <div className="mb-5 flex flex-wrap items-center justify-between gap-5">
-                <TabsList>
-                  {AppConfig.locales.map(locale => (
-                    <TabsTrigger key={locale.id} value={locale.id}>
-                      {locale.name}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-
-                {/* Статус */}
-                <FormField
-                  control={form.control}
-                  name="status"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("status")}</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
+          <CardContent className="space-y-5">
+            {/* Статус */}
+            <FormField
+              control={form.control}
+              name="status"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("status")}</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger
+                        className={cn(
+                          "w-[175px]",
+                          field.value === "READ" && "text-green-600",
+                          field.value === "UNREAD" && "text-red-600",
+                        )}
                       >
-                        <FormControl>
-                          <SelectTrigger
-                            className={cn(
-                              "w-[140px]",
-                              field.value === "READ" && "text-green-600",
-                              field.value === "UNREAD" && "text-red-600",
-                            )}
-                          >
-                            <SelectValue placeholder="Select request status" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="READ" className="text-green-600">
-                            {t("read")}
-                          </SelectItem>
-                          <SelectItem value="UNREAD" className="text-red-600">
-                            {t("unread")}
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-              </div>
-              {AppConfig.locales.map(locale => (
-                <TabsContent
-                  key={locale.id}
-                  value={locale.id}
-                  className="grid gap-x-5 gap-y-5 lg:gap-y-10 xl:grid-cols-2"
-                >
-                  {/* Имя */}
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem className="xl:col-span-2">
-                        <FormLabel>{t("customer-name")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Azamat Azamatov"
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
+                        <SelectValue placeholder="Select request status" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="READ" className="text-green-600">
+                        {t("read")}
+                      </SelectItem>
+                      <SelectItem value="UNREAD" className="text-red-600">
+                        {t("unread")}
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+            {/* First Name */}
+            <FormField
+              control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("customer-name")}</FormLabel>
+                  <FormControl>
+                    <Input placeholder={t("name-placeholder")} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
 
-                  {/* Контактный номер */}
-                  <FormField
-                    control={form.control}
-                    name="contactPhone"
-                    render={({ field }) => (
-                      <FormItem className="xl:col-span-2">
-                        <FormLabel>{t("phone-number")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="tel"
-                            placeholder="+996 700 555 555"
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                </TabsContent>
-              ))}
-            </Tabs>
+            {/* Имя */}
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem className="xl:col-span-2">
+                  <FormLabel>{t("customer-last-name")}</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Азаматов"
+                      {...field}
+                      value={(field.value as string) || ""}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            {/* Email */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("label-email")}</FormLabel>
+                  <FormControl>
+                    <Input placeholder="azamatov@gmail.com" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            {/* Message */}
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm">
+                    {t("label-message")}
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Сообщение..."
+                      className="resize-none"
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            {/* Privacy Policy */}
+            <FormField
+              control={form.control}
+              name="accepted_privacy_policy"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-center gap-3 space-y-0 p-1">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      // onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel>{t("label-privacy")}</FormLabel>
+                </FormItem>
+              )}
+            />
           </CardContent>
           <CardFooter className="flex-wrap gap-5 border-t px-6 py-4">
             <Button type="submit" size="sm" disabled={isExecuting}>

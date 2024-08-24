@@ -47,6 +47,7 @@ export default function SocialsForm({ socialsData, className }: Props) {
   })
 
   const newSocial: zSocial = {
+    type: "",
     name: "",
     link: "",
     icon: "",
