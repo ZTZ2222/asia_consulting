@@ -149,16 +149,14 @@ export default function FormRequest({ btnText, card, className }: Props) {
           control={form.control}
           name="accepted_privacy_policy"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center gap-3 rounded-md border p-1">
+            <FormItem className="flex flex-row items-center gap-3 space-y-0 p-1">
               <FormControl>
                 <Checkbox
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
               </FormControl>
-              <div className="space-y-1 leading-none">
-                <FormLabel>{t("label-privacy-policy")}</FormLabel>
-              </div>
+              <FormLabel>{t("label-privacy-policy")}</FormLabel>
             </FormItem>
           )}
         />

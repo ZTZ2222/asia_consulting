@@ -18,7 +18,7 @@ export default function ServiceCard({ card, className }: Props) {
       {/* Icon */}
       <div className="relative size-12">
         <Image
-          src={card.image || ""}
+          src={card.image || "/assets/placeholder-gray.svg"}
           alt={card.title || ""}
           fill
           className="object-cover"
@@ -27,7 +27,7 @@ export default function ServiceCard({ card, className }: Props) {
       </div>
 
       {/* Title */}
-      <h4 className="text-red-550 text-xl font-bold leading-6">{card.title}</h4>
+      <h4 className="text-xl font-bold leading-6 text-red-550">{card.title}</h4>
 
       {/* Bullets */}
       <ul className="grid gap-3 leading-6">

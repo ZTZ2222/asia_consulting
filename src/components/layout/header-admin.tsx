@@ -40,7 +40,9 @@ export default function HeaderAdmin() {
       <BreadcrumbItem key={href}>
         <BreadcrumbLink asChild>
           <Link href={href}>
-            {isNaN(Number(segment)) ? t(segment) : segment}
+            {isNaN(Number(segment)) && segment.length !== 36
+              ? t(segment)
+              : segment}
           </Link>
         </BreadcrumbLink>
       </BreadcrumbItem>
@@ -61,7 +63,9 @@ export default function HeaderAdmin() {
               {index === pathSegments.length - 1 ? (
                 <BreadcrumbItem key={segment}>
                   <BreadcrumbPage>
-                    {isNaN(Number(segment)) ? t(segment) : segment}
+                    {isNaN(Number(segment)) && segment.length !== 36
+                      ? t(segment)
+                      : segment}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               ) : (
@@ -74,21 +78,23 @@ export default function HeaderAdmin() {
       {/* <div className="relative flex items-center">
         <ModeToggle />
       </div> */}
-      <LocaleSwitcher className="py-2" />
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="/">
-                <House className="size-5" />
-              </Link>
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{t("go-index-page")}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <div className="flex gap-8">
+        <LocaleSwitcher className="py-2" />
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="/">
+                  <House className="size-5" />
+                </Link>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{t("go-index-page")}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     </header>
   )
 }

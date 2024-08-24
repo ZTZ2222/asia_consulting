@@ -1,5 +1,4 @@
 import Heading from "@/components/shared/heading"
-import SectionName from "@/components/shared/section-name"
 import ServiceCard from "@/components/shared/service-card"
 import Subheading from "@/components/shared/subheading"
 import { getNormalizedSectionById } from "@/server/data-access-layer/content"

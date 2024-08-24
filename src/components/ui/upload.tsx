@@ -32,8 +32,6 @@ export default function ImageUploadthing({ field, className }: Props) {
     })
 
     if (res.ok) {
-      console.log(await res.json())
-
       field.onChange("")
       setIsDeleting(false)
     }
