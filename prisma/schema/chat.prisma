@@ -1,0 +1,23 @@
+model Chat {
+  chatId    String   @id @default(uuid())
+  messages  Message[]
+  createdAt DateTime @default(now())
+
+  @@map("chats")
+}
+
+enum UserRoleInChat {
+  CUSTOMER
+  SUPPORT
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  chatId    String   @map("chat_id")
+  chat      Chat     @relation(fields: [chatId], references: [chatId], onDelete: Cascade)
+  content   String
+  sender    UserRoleInChat
+  createdAt DateTime @default(now())
+
+  @@map("messages")
+}
