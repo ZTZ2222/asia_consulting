@@ -46,7 +46,8 @@
       "advanced": "Расширенные настройки",
       "new": "Новый",
       "home": "Главная",
-      "requests": "Заявки"
+      "requests": "Заявки",
+      "chat": "Чат"
     },
     "SidebarAdmin": {
       "company-name": "Asia Consulting",
@@ -187,7 +188,10 @@
       "label-email": "Электронная почта",
       "label-privacy-policy": "Я соглашаюсь с условиями конфиденциальности",
       "last-name": "Фамилия",
-      "column-email": "Электронная почта"
+      "column-email": "Электронная почта",
+      "customer-last-name": "Фамилия клиента",
+      "label-message": "Сообщение",
+      "label-privacy": "Согласие на обработку персональных данных"
     },
     "FormMeta": {
       "label-meta-title": "Мета-заголовок",
@@ -203,6 +207,10 @@
     },
     "Uploadthing": {
       "toast-upload-success": "Картинка успешно загружена!"
+    },
+    "Chat": {
+      "text-area-placeholder": "Написать сообщение...",
+      "button-send": "Отправить"
     }
   },
   "Pages": {
@@ -295,7 +303,8 @@
       "error": "Упс! Произошла ошибка.",
       "request-submit-success": "Ваша заявка успешно доставлена!",
       "request-submit-error": "При отправке вашей заявки произошла ошибка. \nПожалуйста, попробуйте еще раз.",
-      "item-not-found": "Элемент не найден"
+      "item-not-found": "Элемент не найден",
+      "success-send-message": "Сообщение успешно отправлено"
     }
   }
 }

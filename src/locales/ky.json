@@ -46,7 +46,8 @@
       "advanced": "Өркүндөтүлгөн орнотуулар",
       "new": "Жаңы",
       "home": "Башкы бет",
-      "requests": "Тиркемелер"
+      "requests": "Тиркемелер",
+      "chat": "Чат"
     },
     "SidebarAdmin": {
       "company-name": "Asia Consulting",
@@ -187,7 +188,10 @@
       "label-email": "E-mail",
       "label-privacy-policy": "Мен купуялык шарттарына макулмун",
       "last-name": "Фамилия",
-      "column-email": "E-mail"
+      "column-email": "E-mail",
+      "customer-last-name": "Кардардын фамилиясы",
+      "label-message": "Кабар",
+      "label-privacy": "Жеке маалыматтарды иштетүүгө макулдук"
     },
     "FormMeta": {
       "label-meta-title": "Мета аталышы",
@@ -203,6 +207,10 @@
     },
     "Uploadthing": {
       "toast-upload-success": "Сүрөт ийгиликтүү жүктөлдү!"
+    },
+    "Chat": {
+      "text-area-placeholder": "Билдирүү жаз...",
+      "button-send": "Жөнөтүү"
     }
   },
   "Pages": {
