@@ -6,7 +6,7 @@ services:
       context: .
     container_name: asia_consulting_container
     ports:
-      - "3000:3000"  # Map port 3000 on the host to port 3000 in the container
+      - "3006:3000"  # Map port 3000 on the host to port 3000 in the container
     env_file: 
       - .env
     entrypoint: [ "/app/entrypoint.sh" ]
