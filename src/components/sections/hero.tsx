@@ -23,6 +23,7 @@ export default async function Hero() {
           alt="Coins"
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
       <div className="absolute -left-16 bottom-20 -z-10 h-[234px] w-[308px] lg:bottom-1/2 lg:h-[341px] lg:w-[448px] lg:translate-y-1/3">
@@ -31,6 +32,7 @@ export default async function Hero() {
           alt="Coins"
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </section>

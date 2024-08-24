@@ -57,10 +57,11 @@ export default function Parallax({ image, cards }: ParallaxProps) {
         )
       })}
       <Image
-        src={image || ""}
+        src={image || "/assets/placeholder-gray.svg"}
         alt="Background Image"
         fill
         className="-z-10 rounded-3xl object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
   )

@@ -30,7 +30,7 @@ export default async function Footer() {
     },
   ]
   return (
-    <footer className="border-red-550 border-t py-12">
+    <footer className="border-t border-red-550 py-12">
       <div className="container flex flex-col gap-8 lg:flex-row lg:justify-between">
         <div className="space-y-8">
           <div className="relative h-32 w-60">
@@ -65,8 +65,8 @@ export default async function Footer() {
             >
               <div className="relative size-6">
                 <Image
-                  src={social.icon || ""}
-                  alt={social.name || ""}
+                  src={social.icon || "/assets/placeholder-gray.svg"}
+                  alt={social.name || `social ${index}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

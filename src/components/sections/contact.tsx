@@ -18,10 +18,11 @@ export default async function Contact() {
             <div key={index} className="flex gap-5">
               <div className="relative size-12 shrink-0">
                 <Image
-                  src={card.image || ""}
+                  src={card.image || "/assets/placeholder-gray.svg"}
                   alt={card.title || ""}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="space-y-2">

@@ -18,10 +18,11 @@ export default async function CTA() {
         </div>
         <div className="relative h-[103px] w-[208px] justify-self-center">
           <Image
-            src={sectionData?.image || ""}
+            src={sectionData?.image || "/assets/placeholder-gray.svg"}
             alt="Company Image"
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>

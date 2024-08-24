@@ -28,10 +28,11 @@ export default function AnimatedImage({
       )}
     >
       <Image
-        src={image || ""}
+        src={image || "/assets/placeholder-gray.svg"}
         alt="Company Image"
         fill
         className="object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
       <motion.div
         initial={{ y: "100%" }}

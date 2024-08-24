@@ -82,7 +82,7 @@ export default function BlogCard({
               <DialogTitle className="text-2xl font-semibold text-blue-950">
                 {title}
               </DialogTitle>
-              <DialogDescription className="text-red-550 text-sm font-semibold">
+              <DialogDescription className="text-sm font-semibold text-red-550">
                 {updatedAt?.toLocaleDateString(locale) ||
                   createdAt.toLocaleDateString(locale)}
               </DialogDescription>
@@ -94,6 +94,7 @@ export default function BlogCard({
                   alt={`Blog #${uid} image`}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div

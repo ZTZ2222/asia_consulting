@@ -18,6 +18,7 @@ export default function Header({ logo }: { logo: string | null | undefined }) {
             alt="Asia Consulting Logo"
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </Link>
         <Navigation logo={logo} />

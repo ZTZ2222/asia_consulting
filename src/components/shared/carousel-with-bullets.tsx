@@ -52,7 +52,7 @@ export default function CarouselWithBullets({ cards, className }: Props) {
               <Card className="space-y-1 border-none bg-transparent">
                 <CardContent className="relative h-[281px] p-0 md:h-[317px] lg:h-[352px]">
                   <Image
-                    src={card.image || ""}
+                    src={card.image || "/assets/placeholder-gray.svg"}
                     alt={card.title || `Carousel Image ${index + 1}`}
                     fill
                     className="object-cover md:object-contain"
@@ -75,7 +75,7 @@ export default function CarouselWithBullets({ cards, className }: Props) {
             className={`mx-1 h-2.5 w-2.5 rounded-full sm:h-3 sm:w-3 ${
               current - 1 === index
                 ? "bg-red-550"
-                : "border-gray-25 border bg-[#757C8A]"
+                : "border border-gray-25 bg-[#757C8A]"
             }`}
             onClick={() => handleDotClick(index)}
           />
