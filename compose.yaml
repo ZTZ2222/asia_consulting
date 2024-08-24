@@ -11,3 +11,6 @@ services:
       - .env
     entrypoint: [ "/app/entrypoint.sh" ]
     restart: always  # Always restart the container if it stops
+networks:
+  asia_consulting_network:
+    driver: bridge
