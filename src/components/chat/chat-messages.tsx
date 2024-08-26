@@ -21,7 +21,7 @@ export function ChatMessages({ initialMessages, chatId }: ChatProps) {
 
   useEffect(() => {
     pusherClient.subscribe(chatId)
-    pusherClient.bind("upcoming-message", (data: zMessageRead) => {
+    pusherClient.bind("support-chat", (data: zMessageRead) => {
       setMessages(prev => [...prev, data])
     })
 

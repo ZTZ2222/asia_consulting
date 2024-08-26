@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { PopoverClose } from "@radix-ui/react-popover"
-import { MessageSquareMore } from "lucide-react"
+import { Loader2, MessageSquareMore } from "lucide-react"
 import { Send, X } from "lucide-react"
 import { useAction } from "next-safe-action/hooks"
 import { useForm } from "react-hook-form"
@@ -19,20 +19,16 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import BottomScroller from "@/components/chat/bottom-scroller"
-import { sendMessage } from "@/server/actions/chat-action"
+import { getOrCreateChat, sendMessage } from "@/server/actions/chat-action"
 import { pusherClient } from "@/server/pusher"
 import {
   messageCreateSchema,
+  type zChatRead,
   type zMessageCreate,
   type zMessageRead,
 } from "@/types/chat.schema"
 
-type Props = {
-  initialMessages: zMessageRead[] | undefined
-  chatId: string | undefined
-}
-
-export default function FloatChat({ initialMessages, chatId }: Props) {
+export default function FloatChat() {
   const form = useForm<zMessageCreate>({
     resolver: zodResolver(messageCreateSchema),
     defaultValues: {
@@ -41,23 +37,42 @@ export default function FloatChat({ initialMessages, chatId }: Props) {
     },
   })
 
-  const [messages, setMessages] = useState<zMessageRead[]>(
-    initialMessages || [],
-  )
+  const [chatId, setChatId] = useState<string | null>(null)
+  const [messages, setMessages] = useState<zMessageRead[]>([])
 
   useEffect(() => {
-    pusherClient.subscribe(chatId || "public-temporary")
-    pusherClient.bind("upcoming-message", (data: zMessageRead) => {
-      setMessages(prev => [...prev, data])
-    })
+    if (chatId) {
+      pusherClient.subscribe(chatId)
+      pusherClient.bind("support-chat", (data: zChatRead) => {
+        setMessages(prev => [...prev, data.messages[0]])
+      })
+    }
 
-    return () => pusherClient.unsubscribe(chatId || "public-temporary")
+    return () => {
+      if (chatId) {
+        pusherClient.unsubscribe(chatId)
+      }
+    }
   }, [chatId])
 
+  const { execute: handleOpenChat, isExecuting: chatIsLoading } = useAction(
+    getOrCreateChat,
+    {
+      onSuccess(data) {
+        if (data.data?.chatId) {
+          setChatId(data.data?.chatId)
+          form.setValue("chatId", data.data?.chatId)
+        }
+        if (data.data?.messages && data.data?.messages.length > 0) {
+          setMessages(data.data?.messages)
+        }
+      },
+    },
+  )
   const { execute, isExecuting } = useAction(sendMessage)
   const onSubmit = (data: zMessageCreate) => {
     execute(data)
-    form.reset()
+    form.resetField("content")
   }
   return (
     <Popover>
@@ -65,6 +80,7 @@ export default function FloatChat({ initialMessages, chatId }: Props) {
         <Button
           variant="link"
           className="fixed bottom-4 right-4 z-10 rounded-[12px] border border-red-650 p-3 transition-transform hover:scale-105"
+          onClick={() => handleOpenChat()}
         >
           <MessageSquareMore className="text-red-650" />
           <span className="sr-only">Open Chat</span>
@@ -145,9 +161,13 @@ export default function FloatChat({ initialMessages, chatId }: Props) {
                   type="submit"
                   size="icon"
                   className="h-11 w-11 shrink-0 bg-gradient-to-r from-red-650 to-gray-950 text-white hover:opacity-75"
-                  disabled={isExecuting}
+                  disabled={isExecuting || chatIsLoading}
                 >
-                  <Send className="size-5" />
+                  {chatIsLoading ? (
+                    <Loader2 className="size-5 animate-spin" />
+                  ) : (
+                    <Send className="size-5" />
+                  )}
                   <span className="sr-only">Send</span>
                 </Button>
               </form>

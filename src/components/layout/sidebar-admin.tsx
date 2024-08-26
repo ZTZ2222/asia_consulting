@@ -30,13 +30,13 @@ export function SidebarAdmin({
   const session = useSession()
 
   const links = [
-    {
-      label: "Чат",
-      href: "/admin/chat",
-      icon: (
-        <MessagesSquare className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
+    // {
+    //   label: "Чат",
+    //   href: "/admin/chat",
+    //   icon: (
+    //     <MessagesSquare className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+    //   ),
+    // },
     {
       label: t("dashboard"),
       href: "/admin",
