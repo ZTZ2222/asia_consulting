@@ -1,6 +1,6 @@
 "use server"
 
-import { cookies } from "next/headers"
+import { redirect } from "@/lib/i18n-navigation"
 import { db } from "@/server"
 import type { zChatRead } from "@/types/chat.schema"
 
@@ -22,12 +22,9 @@ export async function getAllChats(): Promise<zChatRead[] | null> {
   }
 }
 
-export async function getChatById(chatId?: string): Promise<zChatRead | null> {
-  if (!chatId) {
-    chatId = cookies().get("chatId")?.value
-  }
+export async function getChatById(chatId: string): Promise<zChatRead | null> {
   try {
-    const chat = await db.chat.findFirst({
+    const chat = await db.chat.findFirstOrThrow({
       where: { chatId },
       include: {
         messages: {
@@ -38,6 +35,7 @@ export async function getChatById(chatId?: string): Promise<zChatRead | null> {
     return chat
   } catch (error) {
     console.log(error)
+    redirect("/admin/chat")
     return null
   }
 }

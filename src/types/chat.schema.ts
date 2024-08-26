@@ -1,18 +1,15 @@
 import { z } from "zod"
 
 export const messageCreateSchema = z.object({
-  chatId: z.string().uuid().optional(),
+  chatId: z.string().uuid(),
   content: z.string(),
   sender: z.enum(["CUSTOMER", "SUPPORT"]),
 })
 
-export const messageReadSchema = messageCreateSchema
-  .omit({ chatId: true })
-  .extend({
-    id: z.string().uuid(),
-    chatId: z.string().uuid(),
-    createdAt: z.date(),
-  })
+export const messageReadSchema = messageCreateSchema.extend({
+  id: z.string().uuid(),
+  createdAt: z.date(),
+})
 
 export const chatReadSchema = z.object({
   chatId: z.string().uuid(),
