@@ -13,12 +13,12 @@ interface ChatProps {
 }
 
 export default async function ChatDetail({ params }: ChatProps) {
-  const chatList = await getAllChats()
   const chat = await getChatById(params.chatId)
+  const chatList = await getAllChats()
 
   return (
     <main className="lg:container lg:my-10 lg:flex lg:gap-5">
-      <ChatSidebar chats={chatList} className="hidden lg:flex" />
+      <ChatSidebar initialChats={chatList} className="hidden lg:flex" />
       <div className="bg-white lg:w-[590px] lg:rounded-[10px] lg:shadow-[0px_0px_4px_0px_#9090904D] xl:w-[738px]">
         {chat && chat.messages.length > 0 ? (
           <>

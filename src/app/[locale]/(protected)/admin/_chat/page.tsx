@@ -8,7 +8,7 @@ export default async function ChatList() {
 
   return (
     <main className="lg:container lg:my-10 lg:flex lg:gap-5">
-      <ChatSidebar chats={chatList} />
+      <ChatSidebar initialChats={chatList} />
       <div className="hidden w-full rounded-[10px] shadow-[0px_0px_4px_0px_#9090904D] lg:block">
         <div className="flex size-full flex-col gap-2.5">
           {chatList && chatList.length > 0 ? (
