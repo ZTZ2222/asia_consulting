@@ -1,9 +1,8 @@
 import React from "react"
 import BackToTopButton from "@/components/layout/back-to-top-button"
-import FloatChat from "@/components/layout/float-chat"
 import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
-import { getChatById } from "@/server/data-access-layer/chat"
+import TawkToChat from "@/components/shared/tawk-to-chat"
 import { getMetadata } from "@/server/data-access-layer/content"
 
 export default async function PublicLayout({
@@ -12,14 +11,16 @@ export default async function PublicLayout({
   children: React.ReactNode
 }>) {
   const logo = (await getMetadata())?.logo1
-  const chat = await getChatById()
   return (
-    <div className="flex flex-col">
-      <Header logo={logo} />
-      <main className="grow lg:mt-24">{children}</main>
-      <BackToTopButton />
-      <FloatChat initialMessages={chat?.messages} chatId={chat?.chatId} />
-      <Footer />
-    </div>
+    <>
+      <div className="flex flex-col">
+        <Header logo={logo} />
+        <main className="grow lg:mt-24">{children}</main>
+        <BackToTopButton />
+        {/* <FloatChat /> */}
+        <Footer />
+      </div>
+      <TawkToChat />
+    </>
   )
 }
