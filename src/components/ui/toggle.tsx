@@ -32,6 +32,17 @@ const Toggle = React.forwardRef<
   React.ElementRef<typeof TogglePrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &
     VariantProps<typeof toggleVariants>
+```
+/**
+ * A custom Toggle component that wraps TogglePrimitive.Root with additional styling options
+ * @param {Object} props - The props object
+ * @param {string} props.className - Additional CSS class names to apply to the component
+ * @param {string} props.variant - The visual variant of the toggle (e.g., 'default', 'outline')
+ * @param {string} props.size - The size of the toggle (e.g., 'default', 'sm', 'lg')
+ * @param {React.Ref} ref - A ref to be forwarded to the underlying TogglePrimitive.Root component
+ * @returns {React.Element} A styled Toggle component
+ */
+```
 >(({ className, variant, size, ...props }, ref) => (
   <TogglePrimitive.Root
     ref={ref}

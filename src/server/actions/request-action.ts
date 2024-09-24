@@ -63,6 +63,14 @@ export const updateClientRequest = actionClient
 
 export const deleteClientRequest = actionClient
   .schema(z.object({ uid: z.number() }))
+  ```
+  /**
+   * Deletes a client request from the database.
+   * @param {Object} parsedInput - The input object containing the request UID.
+   * @param {string} parsedInput.uid - The unique identifier of the client request to be deleted.
+   * @returns {Promise<Object>} An object containing either a success message or an error message.
+   */
+  ```
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
@@ -75,6 +83,12 @@ export const deleteClientRequest = actionClient
        * Toggles the status of a client request between 'READ' and 'UNREAD'.
        * @param {Object} parsedInput - The input object containing the request UID.
        * @param {string} parsedInput.uid - The unique identifier of the client request.
+       /**
+        * Toggles the status of a client request between 'READ' and 'UNREAD'.
+        * @param {Object} parsedInput - The input object containing the request UID.
+        * @param {string} parsedInput.uid - The unique identifier of the client request.
+        * @returns {Object} An object containing either a success message or an error message.
+        */
        * @returns {Promise<Object>} An object containing either a success message or an error message.
        */
       return { error: t("Server.actions.error") }

@@ -61,6 +61,15 @@ export const getOrCreateChat = actionClient.action(
 
 export const sendMessage = actionClient
   .schema(messageCreateSchema)
+  /**
+   * Handles a chat message action by upserting the chat and message in the database and triggering a Pusher event.
+   * @param {Object} options - The options object.
+   * @param {Object} options.parsedInput - The parsed input object.
+   * @param {string} options.parsedInput.chatId - The ID of the chat.
+   * @param {string} options.parsedInput.content - The content of the message.
+   * @param {string} options.parsedInput.sender - The sender of the message.
+   * @returns {Promise<Object>} An object indicating the success or error status of the operation.
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
@@ -108,6 +117,12 @@ export const sendMessage = actionClient
 
 export const clearChat = actionClient
   .schema(chatDeleteSchema)
+  /**
+   * Deletes a chat from the database based on the provided chatId
+   * @param {Object} options - The options object
+   * @param {string} options.parsedInput.chatId - The unique identifier of the chat to be deleted
+   * @returns {Promise<Object>} An object indicating the success or failure of the deletion operation
+   */
   .action(async ({ parsedInput: { chatId } }) => {
     const t = await getTranslations()
     try {
