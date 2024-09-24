@@ -17,6 +17,11 @@ import type { OurFileRouter } from "@/app/api/uploadthing/core"
  * @returns {string} A string of merged and concatenated CSS class names
  */
 ```
+/**
+ * Combines and merges CSS class names using the clsx and twMerge utilities.
+ * @param {...ClassValue[]} inputs - An array of class values to be combined and merged.
+ * @returns {string} A string of merged and deduplicated CSS class names.
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -72,6 +77,11 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
  * @returns {Promise<void>} A promise that resolves after the specified delay.
  */
 ```
+/**
+ * Creates a promise that resolves after a specified number of milliseconds
+ * @param {number} ms - The number of milliseconds to wait before resolving the promise
+ * @returns {Promise<void>} A promise that resolves after the specified delay
+ */
 export const sleepTimeout = (ms: number) =>
   /**
    * Creates a promise that resolves after a specified number of milliseconds
@@ -97,6 +107,12 @@ export const saltAndHashPassword = async (password: string) => {
   return hashedPassword
 }
 
+/**
+ * Compares a plain text password with a hashed password.
+ * @param {string} password - The plain text password to compare.
+ * @param {string} hashedPassword - The hashed password to compare against.
+ * @returns {Promise<boolean>} A promise that resolves to true if the passwords match, false otherwise.
+ */
 export const comparePassword = async (
   password: string,
   hashedPassword: string,
@@ -130,9 +146,19 @@ export const generateFilename = (originalName: string): string => {
 export const UploadButton = generateUploadButton<OurFileRouter>()
 export const UploadDropzone = generateUploadDropzone<OurFileRouter>()
 
+/**
+ * Formats the time distance between a given date and the current date in Russian.
+ * @param {Date} date - The date to calculate the distance from.
+ * @returns {string} A string representing the formatted time distance in Russian.
+ */
 export const formatTimeDistanceCustom = (date: Date) =>
   formatDistance(date, new Date(), { locale: ru })
 
+/**
+ * Formats a date string to a localized Russian date format.
+ * @param {string} dateString - The input date string to be formatted.
+ * @returns {string} The formatted date string in Russian locale (dd.mm.yyyy).
+ */
 export const formatStringToDate = (dateString: string) => {
   const date = new Date(dateString)
   return date.toLocaleDateString("ru-RU")
