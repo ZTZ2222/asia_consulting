@@ -32,6 +32,11 @@ export const getUserByEmailPasswordOmit = async (email: string) => {
  * @returns {Promise<object|null>} The user object if found, or null if not found or in case of an error.
  */
 ```
+/**
+ * Retrieves a user by their email address
+ * @param {string} email - The email address of the user to retrieve
+ * @returns {Promise<object|null>} The user object if found, or null if not found or an error occurs
+ */
 export const getUserByEmailDanger = async (email: string) => {
   try {
     const user = await db.user.findUnique({
@@ -47,6 +52,11 @@ export const getUserByEmailDanger = async (email: string) => {
      */
     }
     return user
+  /**
+   * Retrieves a user by their ID, excluding the password field
+   * @param {string} id - The unique identifier of the user
+   * @returns {Promise<Object|null>} The user object without the password field if found, null otherwise
+   */
   } catch (error) {
     return null
   }
