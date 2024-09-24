@@ -36,6 +36,16 @@ const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &
     VariantProps<typeof toggleVariants>
+/**
+ * Renders a customizable toggle group item component.
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional CSS class for styling.
+ * @param {React.ReactNode} props.children - The content to be rendered inside the toggle item.
+ * @param {string} [props.variant] - The visual variant of the toggle item.
+ * @param {string} [props.size] - The size of the toggle item.
+ * @param {React.Ref} ref - Ref object for the toggle item.
+ * @returns {React.ReactElement} A ToggleGroupPrimitive.Item component with applied styles and properties.
+ */
 >(({ className, children, variant, size, ...props }, ref) => {
   const context = React.useContext(ToggleGroupContext)
 
