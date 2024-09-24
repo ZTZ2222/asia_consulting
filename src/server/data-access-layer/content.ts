@@ -71,6 +71,12 @@ export async function getNormalizedSectionById(
     `secondaryButton_${locale}` as keyof typeof sectionData
   ] as string | null
 
+  /**
+   * Normalizes an array of cards by mapping their properties based on the current locale.
+   * @param {Object[]} sectionData.cards - The array of card objects to be normalized.
+   * @param {string} locale - The current locale used for selecting localized properties.
+   * @returns {NormalizedCard[]} An array of normalized card objects with localized properties.
+   */
   const normalizedCards: NormalizedCard[] = sectionData.cards.map(card => ({
     uid: card.uid,
     title: card[`title_${locale}` as keyof typeof card] as string | null,
@@ -99,6 +105,10 @@ export async function getNormalizedSectionById(
   }
 }
 
+/**
+ * Retrieves all social media entries from the database in ascending order by UID.
+ * @returns {Promise<zSocial[] | null>} A promise that resolves to an array of zSocial objects if found, or null if no entries exist or an error occurs.
+ */
 export async function getSocials(): Promise<zSocial[] | null> {
   try {
     const socials = await db.social.findMany({
