@@ -14,6 +14,10 @@ import {
 } from "@/types/chat.schema"
 
 export const getOrCreateChat = actionClient.action(
+  /**
+   * Retrieves or creates a chat session
+   * @returns {Promise<zChatRead | null>} A Promise that resolves to the chat object or null if an error occurs
+   */
   async (): Promise<zChatRead | null> => {
     let chatId
     chatId = cookies().get("chatId")?.value
@@ -45,6 +49,14 @@ export const getOrCreateChat = actionClient.action(
       }
     }
   },
+/**
+ * Handles an action to upsert a chat message and trigger a real-time update
+ * @param {Object} parsedInput - The parsed input containing chat details
+ * @param {string} parsedInput.chatId - The unique identifier for the chat
+ * @param {string} parsedInput.content - The content of the message
+ * @param {string} parsedInput.sender - The sender of the message
+ * @returns {Promise<Object>} An object indicating success or error status
+ */
 )
 
 export const sendMessage = actionClient
@@ -84,6 +96,14 @@ export const sendMessage = actionClient
       console.log(error)
       return { error: t("Server.actions.error") }
     }
+  ```
+  /**
+   * Deletes a chat from the database based on the provided chat ID.
+   * @param {Object} options - The options object.
+   * @param {string} options.parsedInput.chatId - The ID of the chat to be deleted.
+   * @returns {Promise<Object>} An object indicating the success or failure of the deletion operation.
+   */
+  ```
   })
 
 export const clearChat = actionClient
