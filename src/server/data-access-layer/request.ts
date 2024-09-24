@@ -2,6 +2,12 @@
 
 import { db } from "@/server"
 
+/**
+ * Retrieves paginated client requests from the database with optional search functionality.
+ * @param {number} [currentPage=1] - The current page number for pagination.
+ * @param {string} [query] - Optional search query to filter client requests by first name, last name, or email.
+ * @returns {Promise<Array<ClientRequest>|null>} An array of client request objects if found, or null if no results or an error occurs.
+ */
 export async function getClientRequests(
   currentPage: number = 1,
   query?: string,
@@ -46,6 +52,11 @@ export async function getClientRequests(
   }
 }
 
+/**
+ * Retrieves a client request from the database by its unique identifier.
+ * @param {number} uid - The unique identifier of the client request.
+ * @returns {Promise<Object|null>} The client request object if found, or null if not found or if an error occurs.
+ */
 export async function getClientRequestById(uid: number) {
   try {
     const clientRequest = await db.clientRequest.findUnique({
@@ -58,6 +69,10 @@ export async function getClientRequestById(uid: number) {
   }
 }
 
+/**
+ * Asynchronously retrieves the count of unread client requests from the database.
+ * @returns {Promise<number|null>} A promise that resolves to the number of unread requests, or null if an error occurs.
+ */
 export async function getUnreadRequestsCount() {
   try {
     const count = await db.clientRequest.count({ where: { status: "UNREAD" } })
