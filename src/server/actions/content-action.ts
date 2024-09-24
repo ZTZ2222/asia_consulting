@@ -134,6 +134,13 @@ export const upsertMetadata = actionClient
    * @returns {Promise<Object>} An object containing a success message or an error message.
    */
   
+  /**
+   * Asynchronously updates or creates metadata in the database based on the provided input.
+   * @param {Object} options - The options object.
+   * @param {Object} options.parsedInput - The parsed input object containing metadata.
+   * @param {string} [options.parsedInput.uid] - The unique identifier for the metadata (optional).
+   * @returns {Promise<Object>} An object containing a success message or an error message.
+   */
   ```  .action(async ({ parsedInput: metadata }) => {
     const t = await getTranslations()
     try {
