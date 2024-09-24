@@ -7,6 +7,13 @@ import { actionClient } from "./safe-action"
 
 export const loginUser = actionClient
   .schema(credentialsSchema)
+  /**
+   * Attempts to sign in a user with provided credentials and handles authentication errors.
+   * @param {Object} options - The options object containing user credentials.
+   * @param {string} options.email - The user's email address.
+   * @param {string} options.password - The user's password.
+   * @returns {Object} An object indicating success or error message.
+   */
   .action(async ({ parsedInput: { email, password } }) => {
     try {
       await signIn("credentials", {
