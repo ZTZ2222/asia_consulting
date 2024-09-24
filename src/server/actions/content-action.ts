@@ -13,6 +13,14 @@ import { actionClient } from "./safe-action"
 
 export const updateSection = actionClient
   .schema(sectionSchema)
+  /**
+   * Updates a section and its associated cards in the database
+   * @param {Object} parsedInput - The input object containing section and card data
+   * @param {string} parsedInput.uid - The unique identifier of the section to update
+   * @param {Array} parsedInput.cards - An array of card objects to update or create
+   * @param {Object} parsedInput.[...rest] - Other properties of the section to update
+   * @returns {Promise<Object>} An object indicating success or error status
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     const { cards, ...rest } = parsedInput
@@ -45,6 +53,12 @@ export const updateSection = actionClient
 
 export const deleteCard = actionClient
   .schema(z.object({ uid: z.number() }))
+  /**
+   * Asynchronously deletes a card from the database based on the provided UID
+   * @param {Object} parsedInput - The parsed input containing the card's UID
+   * @param {string} parsedInput.uid - The unique identifier of the card to be deleted
+   * @returns {Promise<Object>} An object containing either a success message or an error message
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
@@ -59,6 +73,12 @@ export const deleteCard = actionClient
 
 export const upsertSocials = actionClient
   .schema(socialSchema.array())
+  /**
+   * Updates or creates social media entries in the database
+   * @param {Object} options - The options object
+   * @param {Array} options.parsedInput - An array of social media objects to update or create
+   * @returns {Promise<Object>} An object indicating success or error
+   */
   .action(async ({ parsedInput: socials }) => {
     const t = await getTranslations()
     try {
@@ -85,6 +105,12 @@ export const upsertSocials = actionClient
 
 export const deleteSocial = actionClient
   .schema(z.object({ uid: z.number() }))
+  /**
+   * Asynchronously deletes a social record from the database based on the provided UID
+   * @param {Object} parsedInput - The parsed input object containing the UID
+   * @param {string} parsedInput.uid - The unique identifier of the social record to delete
+   * @returns {Promise<Object>} An object containing either a success message or an error message
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
@@ -99,7 +125,16 @@ export const deleteSocial = actionClient
 
 export const upsertMetadata = actionClient
   .schema(metaUpsertSchema)
-  .action(async ({ parsedInput: metadata }) => {
+  ```
+  /**
+   * Asynchronously updates or creates metadata in the database based on the provided input.
+   * @param {Object} options - The options object.
+   * @param {Object} options.parsedInput - The metadata object to be updated or created.
+   * @param {string} [options.parsedInput.uid] - The unique identifier for the metadata.
+   * @returns {Promise<Object>} An object containing a success message or an error message.
+   */
+  
+  ```  .action(async ({ parsedInput: metadata }) => {
     const t = await getTranslations()
     try {
       if (metadata.uid) {

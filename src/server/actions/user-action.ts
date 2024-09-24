@@ -10,6 +10,15 @@ import { actionClient } from "./safe-action"
 
 export const createUser = actionClient
   .schema(userCreateSchema)
+  /**
+   * Handles user registration action asynchronously.
+   * @param {Object} parsedInput - The parsed input containing user registration data.
+   * @param {string} parsedInput.email - User's email address.
+   * @param {string} parsedInput.password - User's password.
+   * @param {string} parsedInput.confirmPassword - Confirmation of user's password.
+   * @param {Object} parsedInput.rest - Additional user data.
+   * @returns {Promise<Object>} An object containing either a success message or an error message.
+   */
   .action(async ({ parsedInput }) => {
     const { email, password, confirmPassword, ...rest } = parsedInput
     const normalizedEmail = email.toLowerCase()

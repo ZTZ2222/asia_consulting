@@ -4,6 +4,11 @@ import { getLocale } from "next-intl/server"
 import { db } from "@/server"
 import type { NormalizedArticleRead, zArticleRead } from "@/types/blog.schema"
 
+/**
+ * Retrieves an article by its unique identifier from the database.
+ * @param {number} uid - The unique identifier of the article to retrieve.
+ * @returns {Promise<zArticleRead | null>} A promise that resolves to the article object if found, or null if not found or an error occurs.
+ */
 export async function getArticleById(
   uid: number,
 ): Promise<zArticleRead | null> {
@@ -17,6 +22,11 @@ export async function getArticleById(
       },
     })
     return article
+  /**
+   * Retrieves a normalized article by its unique identifier.
+   * @param {number} uid - The unique identifier of the article to retrieve.
+   * @returns {Promise<NormalizedArticleRead | null>} A Promise that resolves to a normalized article object if found, or null if not found.
+   */
   } catch (error) {
     return null
   }
@@ -55,6 +65,13 @@ export async function getNormalizedArticleById(
     uid: article.uid,
     title,
     content,
+    /**
+     * Retrieves and normalizes articles based on specified criteria.
+     * @param {number} [currentPage=1] - The current page number for pagination.
+     * @param {string} [query] - Optional search query to filter articles by title.
+     * @param {boolean} [publicOnly=true] - Whether to return only published articles.
+     * @returns {Promise<NormalizedArticleRead[]>} A promise that resolves to an array of normalized article objects.
+     */
     image,
     linkTitle,
     linkHref,
@@ -104,6 +121,12 @@ export async function getNormalizedArticles(
     },
   })
 
+  /**
+   * Maps an array of articles to a new array with localized content
+   * @param {Array} articles - The original array of article objects
+   * @param {string} locale - The current locale for content selection
+   * @returns {Array} An array of transformed article objects with localized content
+   */
   return articles.map(article => {
     const title =
       (article[`title_${locale}` as keyof typeof article] as string | null) ||

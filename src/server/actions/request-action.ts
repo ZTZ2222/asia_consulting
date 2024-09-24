@@ -12,6 +12,12 @@ import {
 
 export const createClientRequest = actionClient
   .schema(clientRequestCreateSchema)
+  /**
+   * Handles the action of creating a client request
+   * @param {Object} options - The options object
+   * @param {Object} options.parsedInput - The parsed input data for the client request
+   * @returns {Promise<Object>} An object containing either a success message or an error message
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
@@ -28,11 +34,23 @@ export const createClientRequest = actionClient
 
 export const updateClientRequest = actionClient
   .schema(clientRequestUpdateSchema)
+  /**
+   * Updates a client request in the database based on the parsed input.
+   * @param {Object} parsedInput - The parsed input containing the client request data.
+   * @param {string} parsedInput.uid - The unique identifier of the client request to update.
+   * @returns {Promise<Object>} An object indicating the success or failure of the update operation.
+   */
   .action(async ({ parsedInput }) => {
     const t = await getTranslations()
     try {
       await db.clientRequest.update({
         where: { uid: parsedInput.uid },
+        /**
+         * Asynchronously deletes a client request from the database based on the provided UID
+         * @param {Object} parsedInput - The parsed input object containing the request details
+         * @param {string} parsedInput.uid - The unique identifier of the client request to be deleted
+         * @returns {Promise<Object>} An object containing either a success message or an error message
+         */
         data: parsedInput,
       })
       revalidatePath("/admin/requests")
@@ -53,6 +71,12 @@ export const deleteClientRequest = actionClient
 
       return { success: t("Server.actions.success-delete") }
     } catch (error) {
+      /**
+       * Toggles the status of a client request between 'READ' and 'UNREAD'.
+       * @param {Object} parsedInput - The input object containing the request UID.
+       * @param {string} parsedInput.uid - The unique identifier of the client request.
+       * @returns {Promise<Object>} An object containing either a success message or an error message.
+       */
       return { error: t("Server.actions.error") }
     }
   })
