@@ -32,6 +32,11 @@ export async function getArticleById(
   }
 }
 
+/**
+ * Retrieves and normalizes an article by its unique identifier.
+ * @param {number} uid - The unique identifier of the article to retrieve.
+ * @returns {Promise<NormalizedArticleRead | null>} A promise that resolves to a normalized article object if found, or null if not found.
+ */
 export async function getNormalizedArticleById(
   uid: number,
 ): Promise<NormalizedArticleRead | null> {
@@ -77,6 +82,13 @@ export async function getNormalizedArticleById(
     linkHref,
     status: article.status,
     createdAt: article.createdAt,
+    /**
+     * Retrieves and normalizes articles based on specified criteria.
+     * @param {number} [currentPage=1] - The current page number for pagination.
+     * @param {string} [query] - Optional search query to filter articles.
+     * @param {boolean} [publicOnly=true] - Whether to return only published articles.
+     * @returns {Promise<NormalizedArticleRead[]>} A promise that resolves to an array of normalized article objects.
+     */
     updatedAt: article.updatedAt,
     socials: article.socials,
   }
